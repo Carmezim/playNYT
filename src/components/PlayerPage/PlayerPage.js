@@ -6,7 +6,7 @@ import articlesData from '../../../articles.json';
 class PlayerPage extends React.Component {
   constructor() {
     super();
-    this.state = {articles: [], url: '', headline: '', content: ''}
+    this.state = {articles: [], url: '', headline: '', content: '', selected: ''}
   }
 
   componentWillMount() {

@@ -1,11 +1,12 @@
 import React from 'react';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
+import speech from '../../services/Speech';
 
 
 class ArticleList extends React.Component {
 
-  onClick() {
-
+  handleClick(articleToPlay) {
+     speech(articleToPlay.content);
   }
 
   render() {
@@ -13,7 +14,9 @@ class ArticleList extends React.Component {
     if(this.props.articles) {
       article = this.props.articles.map((articleItem, index) => {
         return(
-          <ArticleListItem key={index} content={articleItem.content} headline={articleItem.headline} />
+          <div key={index} onClick={() => this.handleClick(articleItem)}>
+            <ArticleListItem headline={articleItem.headline} />
+          </div>
         );
       });
     }

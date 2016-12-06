@@ -6,7 +6,6 @@ class ArticleListItem extends React.Component {
       <div className="article-list-item">
         <li>
           <h3>{this.props.headline}</h3>
-          <p>{this.props.content}</p>
         </li>
       </div>
     );
