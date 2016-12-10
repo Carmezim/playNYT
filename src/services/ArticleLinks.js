@@ -63,9 +63,12 @@ let articlesLinks = function(callback) {
       content: _.pluck(item, 'content')
       }
     });
-    console.log(data);
+    // console.log(data);
     // Write content in JSON format locally
+
+
     var dataJSON = JSON.stringify(data, null, 4);
+    console.log(dataJSON);
     fs.writeFile("articles.json", dataJSON, function(err) {
       if(err){
         return console.log(err);

@@ -1,6 +1,7 @@
 var speechUtteranceChunker = function (utt, settings, callback) {
   settings = settings || {};
   var newUtt;
+  console.log('UTT',utt);
   var txt = (settings && settings.offset !== undefined ? utt.text.substring(settings.offset) : utt.text);
   if (utt.voice && utt.voice.voiceURI === 'native') { // Not part of the spec
     newUtt = utt;
@@ -17,7 +18,7 @@ var speechUtteranceChunker = function (utt, settings, callback) {
   else {
     var chunkLength = (settings && settings.chunkLength) || 160;
     var pattRegex = new RegExp('^[\\s\\S]{' + Math.floor(chunkLength / 2) + ',' + chunkLength + '}[.!?,]{1}|^[\\s\\S]{1,' + chunkLength + '}$|^[\\s\\S]{1,' + chunkLength + '} ');
-      var chunkArr = txt.match(pattRegex);
+    var chunkArr = txt.match(pattRegex);
 
     if (chunkArr[0] === undefined || chunkArr[0].length <= 2) {
       //call once all text has been spoken...
