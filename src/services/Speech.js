@@ -1,28 +1,44 @@
-import React from 'react';
 import speechUtteranceChunker from './polyfill';
+import SpeechSynthesis from './Synthesis';
 
 
-const speech = (article) => {
-  if(article !== undefined && article !== null){
-    console.log(article);
+var speech = {
 
-    let utterance = new window.SpeechSynthesisUtterance();
-    let selected = window.speechSynthesis.getVoices();
-    utterance.voice = selected[2];
-    utterance.voiceURI = 'Google US English';
-    utterance.lang = 'en-US';
-    utterance.pitch = 10;
-    utterance.rate = 1;
-    utterance.text = article.toString();
-    utterance.volume = 1;
-
-    speechUtteranceChunker(utterance, {
-      chunckLength: 160
-    }, function() {
-      console.log('Speech finished');
+  startSpeech: function(articleContent) {
+    this.speechSynthesis = new SpeechSynthesis(articleContent);
+    speechUtteranceChunker(this.startSpeech, {
+      chunckLenght: 160
+    }, function () {
+      this.stop();
     });
-  }
+    this.speechSynthesis.onend(this.onend);
+    this.speechSynthesis.onerror(this.onerror);
+  },
+
+  play: function(content) {
+    this.startSpeech(content);
+    this.speechSynthesis.speak();
+  },
+
+  pause: function() {
+    this.speechSynthesis.pause();
+  },
+
+  resume: function() {
+    this.speechSynthesis.resume();
+  },
+
+  stop: function() {
+    this.speechSynthesis.cancel();
+  },
+
+  onend: function() {
+    this.stop();
+  },
+
+  onerror: function() {
+    this.stop();
+  },
+
 };
-
-
 export default speech;
