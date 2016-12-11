@@ -20,6 +20,7 @@ class PlayerPage extends React.Component {
   }
 
   componentWillMount() {
+
     this.setState({
       articles: articlesData,
       article: articlesData[0],

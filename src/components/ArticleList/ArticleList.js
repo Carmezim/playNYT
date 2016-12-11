@@ -5,7 +5,8 @@ import speech from '../../services/Speech';
 class ArticleList extends React.Component {
 
   handleClick(articleToPlay) {
-    speech.play(articleToPlay);
+    speech.articleContent = articleToPlay;
+    speech.play();
   }
 
   handleClick_2() {

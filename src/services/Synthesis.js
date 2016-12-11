@@ -1,14 +1,13 @@
 var SpeechSynthesis = function(article){
   this.utterance = new window.SpeechSynthesisUtterance();
-  var selected = window.speechSynthesis.getVoices();
-  this.utterance.voice = selected[2];
+  this.selected = window.speechSynthesis.getVoices();
+  this.utterance.voice =  this.selected[2];
   this.utterance.voiceURI = 'Google US English';
   this.utterance.lang = 'en-US';
   this.utterance.pitch = 10;
   this.utterance.rate = 1;
-  this.utterance.text = article.toString();
+  this.utterance.text = article.replace(/\n/g, '').toString();
   this.utterance.volume = 1;
-
 };
 
 SpeechSynthesis.supported = function(selected) {

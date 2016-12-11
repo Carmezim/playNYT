@@ -3,11 +3,12 @@ import SpeechSynthesis from './Synthesis';
 
 
 var speech = {
+  articleContent: [],
 
-  startSpeech: function(articleContent) {
-    this.speechSynthesis = new SpeechSynthesis(articleContent.toString());
+  startSpeech: function() {
+    this.speechSynthesis = new SpeechSynthesis(this.articleContent);
     speechUtteranceChunker(this.speechSynthesis.utterance, {
-      chunckLenght: 160
+      chunckLenght: 140
     }, function () {
       this.stop();
     });
@@ -16,7 +17,7 @@ var speech = {
   },
 
   play: function(content) {
-    this.startSpeech(content.toString());
+    this.startSpeech();
     this.speechSynthesis.speak();
   },
 
@@ -41,4 +42,5 @@ var speech = {
   },
 
 };
+speech.SpeechSynthesis = SpeechSynthesis;
 export default speech;
