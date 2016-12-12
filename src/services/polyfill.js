@@ -45,7 +45,6 @@ var speechUtteranceChunker = function (utt, settings, callback) {
       speechUtteranceChunker(utt, settings, callback);
     });
   }
-  var uttrs= [];
 
   if (settings.modifier) {
     settings.modifier(newUtt);
@@ -53,7 +52,6 @@ var speechUtteranceChunker = function (utt, settings, callback) {
   console.log(newUtt); //IMPORTANT!! Do not remove: Logging the object out fixes some onend firing issues.
   //placing the speak invocation inside a callback fixes ordering and onend issues.
   setTimeout(function () {
-    uttrs.push(newUtt);
     speechSynthesis.speak(newUtt);
   }, 0);
 };

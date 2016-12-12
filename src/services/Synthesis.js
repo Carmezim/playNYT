@@ -1,23 +1,12 @@
 var SpeechSynthesis = function(article){
   this.utterance = new window.SpeechSynthesisUtterance();
-  this.selected = window.speechSynthesis.getVoices();
-  this.utterance.voice =  this.selected[2];
+  this.utterance.voice =  'Google US English';
   this.utterance.voiceURI = 'Google US English';
   this.utterance.lang = 'en-US';
   this.utterance.pitch = 10;
   this.utterance.rate = 1;
-  this.utterance.text = article.replace(/\n/g, '').toString();
+  this.utterance.text = article.toString();
   this.utterance.volume = 1;
-};
-
-SpeechSynthesis.supported = function(selected) {
-  return window.speechSynthesis;
-};
-
-SpeechSynthesis.getVoice = function(selected) {
-  return window.speechSynthesis.getVoices().filter(function(voice) {
-    return voice.name === selected;
-  });
 };
 
 SpeechSynthesis.prototype.onend = function(func) {

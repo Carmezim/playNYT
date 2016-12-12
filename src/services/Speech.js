@@ -10,7 +10,7 @@ var speech = {
     speechUtteranceChunker(this.speechSynthesis.utterance, {
       chunckLenght: 140
     }, function () {
-      this.stop();
+      console.log('end');
     });
     this.speechSynthesis.onend(this.onend);
     this.speechSynthesis.onerror(this.onerror);
@@ -30,6 +30,7 @@ var speech = {
   },
 
   stop: function() {
+    console.log('stop');
     this.speechSynthesis.cancel();
   },
 
