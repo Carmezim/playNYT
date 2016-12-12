@@ -3,22 +3,32 @@ import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import speech from '../../services/Speech';
 
 class ArticleList extends React.Component {
+  playing = this.props.playing;
 
   handleClick(articleToPlay) {
-    speech.articleContent = articleToPlay;
-    speech.play();
-  }
+    switch(this.playing) {
+      case 'FIRST_PLAY':
+        console.log('firstplay');
+        speech.articleContent = articleToPlay;
+        speech.play();
+        this.playing = 'PLAYING';
+        break;
 
-  handleClick_2() {
-    speech.pause();
-  }
+      case 'PLAYING':
+        console.log('pause');
+        speech.pause();
+        this.playing = 'PAUSED';
+        break;
 
-  handleClick_3() {
-    speech.resume();
-  }
+      case 'PAUSED':
+        console.log('resume');
+        speech.resume();
+        this.playing = 'PLAYING';
+        break;
 
-  handleClick_4() {
-    speech.stop();
+      default: console.log('player error');
+        break;
+    }
   }
 
   render() {
@@ -27,10 +37,7 @@ class ArticleList extends React.Component {
       article = this.props.articles.map((articleItem, index) => {
         return(
           <div key={index}>
-            <button onClick={() => this.handleClick(articleItem.content)}>button 1</button>
-            <button onClick={() => this.handleClick_2()}>button 2</button>
-            <button onClick={() => this.handleClick_3()}>button 3</button>
-            <button onClick={() => this.handleClick_4()}>button 4</button>
+            <button onClick={() => this.handleClick(articleItem.content)}>Btn</button>
             <ArticleListItem headline={articleItem.headline} />
           </div>
         );

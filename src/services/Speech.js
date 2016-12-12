@@ -8,7 +8,7 @@ var speech = {
   startSpeech: function() {
     this.speechSynthesis = new SpeechSynthesis(this.articleContent);
     speechUtteranceChunker(this.speechSynthesis.utterance, {
-      chunckLenght: 140
+      chunckLenght: 150
     }, function () {
       console.log('end');
     });

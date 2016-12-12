@@ -15,7 +15,7 @@ class PlayerPage extends React.Component {
       headline: '',
       content: '',
       selected: '',
-      playing: false
+      playing: 'FIRST_PLAY'
     }
   }
 
@@ -33,7 +33,7 @@ class PlayerPage extends React.Component {
       <div className="player-page">
 
         <Player headline={this.state.headlinePlay} />
-        <ArticleList articles={this.state.articles} />
+        <ArticleList firstPlay={this.state.firstPlay} playing={this.state.playing} articles={this.state.articles} />
       </div>
     );
   }
