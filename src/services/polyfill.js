@@ -1,9 +1,8 @@
 var speechUtteranceChunker = function (utt, settings, callback) {
   settings = settings || {};
   var newUtt;
-  console.log('UTT',utt);
   var txt = (settings && settings.offset !== undefined ? utt.text.substring(settings.offset) : utt.text);
-  if (utt.voice && utt.voice.voiceURI === 'native') { // Not part of the spec
+  if (utt.voice && utt.voice.voiceURI === 'Google US English') { // Not part of the spec
     newUtt = utt;
     newUtt.text = txt;
     newUtt.addEventListener('end', function () {

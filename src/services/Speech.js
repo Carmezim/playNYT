@@ -16,7 +16,7 @@ var speech = {
     this.speechSynthesis.onerror(this.onerror);
   },
 
-  play: function(content) {
+  play: function() {
     this.startSpeech();
     this.speechSynthesis.speak();
   },

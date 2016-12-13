@@ -5,20 +5,26 @@ import ArticleListItem from '../ArticleListItem/ArticleListItem';
 class ArticleList extends React.Component {
   playing = this.props.playing;
   render() {
+    var clickHandler = this.props.click;
     let article;
     if(this.props.articles) {
       article = this.props.articles.map((articleItem, index) => {
         return(
-          <div key={index}>
-            <ArticleListItem playing={this.playing} articleContent={articleItem.content} headline={articleItem.headline} />
-          </div>
+          <ArticleListItem
+            key={index}
+            playing={this.playing}
+            articleContent={articleItem.content}
+            article={articleItem}
+            headline={articleItem.headline}
+            click={clickHandler}
+          />
         );
       });
     }
     return (
-      <div className="article-list">
+      <ul className="article-list">
         {article}
-      </div>
+      </ul>
     );
   }
 };

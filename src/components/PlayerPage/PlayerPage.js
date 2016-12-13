@@ -15,8 +15,17 @@ class PlayerPage extends React.Component {
       headline: '',
       content: '',
       selected: '',
-      playing: 'FIRST_PLAY'
+      playing: 'FIRST_PLAY',
+      index: null,
+      firstPlay: ''
     }
+  }
+
+  clickHandlerPlayer(articleOnPlayer) {
+    console.log(articleOnPlayer);
+    this.setState({
+      headlinePlay: articleOnPlayer.headline
+    });
   }
 
   componentWillMount() {
@@ -24,16 +33,19 @@ class PlayerPage extends React.Component {
     this.setState({
       articles: articlesData,
       article: articlesData[0],
-      headlinePlay: articlesData[0].headline,
     });
   }
 
   render() {
+    console.log(this.state.headlinePlay);
     return (
       <div className="player-page">
-
         <Player headline={this.state.headlinePlay} />
-        <ArticleList firstPlay={this.state.firstPlay} playing={this.state.playing} articles={this.state.articles} />
+        <ArticleList
+          firstPlay={this.state.firstPlay}
+          playing={this.state.playing}
+          articles={this.state.articles}
+          click={this.clickHandlerPlayer} />
       </div>
     );
   }
