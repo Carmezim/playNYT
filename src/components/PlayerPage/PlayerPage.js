@@ -11,7 +11,7 @@ class PlayerPage extends React.Component {
       articles: [],
       article: '',
       url: '',
-      headlinePlay: '',
+      headlinePlay: 'testing',
       headline: '',
       content: '',
       selected: '',
@@ -21,15 +21,21 @@ class PlayerPage extends React.Component {
     }
   }
 
-  clickHandlerPlayer(articleOnPlayer) {
-    console.log(articleOnPlayer);
-    this.setState({
-      headlinePlay: articleOnPlayer.headline
-    });
+  clickHandlerPlayer = (articleOnPlayer) => {
+    let nextState = Object.assign({}, this.state, {headlinePlay: articleOnPlayer});
+    this.setState(this.validateHeadline(nextState));
   }
+    validateHeadline = (state) => {
+      let validation = {};
+      if (state.headlinePlay.length === 0) {
+        validation.titleError = "this.state.headlinePlay is receiving an empty value";
+      }
+      return Object.assign({}, state, validation);
+    }
+
+
 
   componentWillMount() {
-
     this.setState({
       articles: articlesData,
       article: articlesData[0],
@@ -37,7 +43,7 @@ class PlayerPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.headlinePlay);
+
     return (
       <div className="player-page">
         <Player headline={this.state.headlinePlay} />

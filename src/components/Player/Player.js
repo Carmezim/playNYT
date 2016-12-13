@@ -1,5 +1,4 @@
 import React from 'react';
-// import speech from '../../services/Speech';
 
 class Player extends React.Component {
    render(){

@@ -5,7 +5,6 @@ import ArticleListItem from '../ArticleListItem/ArticleListItem';
 class ArticleList extends React.Component {
   playing = this.props.playing;
   render() {
-    var clickHandler = this.props.click;
     let article;
     if(this.props.articles) {
       article = this.props.articles.map((articleItem, index) => {
@@ -16,7 +15,7 @@ class ArticleList extends React.Component {
             articleContent={articleItem.content}
             article={articleItem}
             headline={articleItem.headline}
-            click={clickHandler}
+            click={this.props.click}
           />
         );
       });
