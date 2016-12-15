@@ -10,14 +10,14 @@ var speech = {
     speechUtteranceChunker(this.speechSynthesis.utterance, {
       chunckLenght: 150
     }, function () {
-      console.log('end');
+      this.stop();
     });
     this.speechSynthesis.onend(this.onend);
     this.speechSynthesis.onerror(this.onerror);
   },
 
   play: function() {
-    this.startSpeech();
+    // this.startSpeech();
     this.speechSynthesis.speak();
   },
 

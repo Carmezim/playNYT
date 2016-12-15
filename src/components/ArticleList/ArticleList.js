@@ -11,6 +11,7 @@ class ArticleList extends React.Component {
         return(
           <ArticleListItem
             key={index}
+            indexKey={index}
             playing={this.playing}
             articleContent={articleItem.content}
             article={articleItem}
