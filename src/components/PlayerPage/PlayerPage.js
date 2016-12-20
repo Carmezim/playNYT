@@ -17,14 +17,14 @@ class PlayerPage extends React.Component {
       selected: '',
       playing: 'FIRST_PLAY',
       index: null,
-      firstPlay: ''
+      initialized: false
     }
   }
   // Pass headline of article clicked to be displayed on Player component, validating it. Pass "playing" state
   // Function is passed through props to ArticleList component and then to ArticleListItem component where it is executed
   // to handle the clicks on articles.
-  clickHandlerPlayer = (articleOnPlayer, isPlaying) => {
-    let nextState = Object.assign({}, this.state, {headlinePlay: articleOnPlayer, playing: isPlaying});
+  clickHandlerPlayer = (articleOnPlayer, isPlaying, isInitialized, article) => {
+    let nextState = Object.assign({}, this.state, {headlinePlay: articleOnPlayer, playing: isPlaying, initialized: isInitialized, article: article});
     this.setState(this.validateHeadline(nextState));
   }
   // validates if headline variable isn't empty
@@ -40,21 +40,22 @@ class PlayerPage extends React.Component {
     this.setState({
       articles: articlesData,
       article: articlesData[0],
+      content: articlesData[0].content,
       headlinePlay: articlesData[0].headline
-    });
+    }, console.log(this.state.article));
   }
 
   render() {
-
     return (
       <div className="player-page">
-        PLAYER PAGE STATE {this.state.playing}
         <Player
+          content={this.state.content}
+          initialized={this.state.initialized}
           headline={this.state.headlinePlay}
           playing={this.state.playing}
           click={this.clickHandlerPlayer} />
         <ArticleList
-          firstPlay={this.state.firstPlay}
+          initialized={this.state.initialized}
           playing={this.state.playing}
           articles={this.state.articles}
           click={this.clickHandlerPlayer} />

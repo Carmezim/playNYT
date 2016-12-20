@@ -10,8 +10,8 @@ class ArticleList extends React.Component {
       article = this.props.articles.map((articleItem, index) => {
         return(
           <ArticleListItem
+            initialized={this.props.initialized}
             key={index}
-            indexKey={index}
             playing={this.playing}
             articleContent={articleItem.content}
             article={articleItem}

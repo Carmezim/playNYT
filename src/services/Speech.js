@@ -17,7 +17,7 @@ var speech = {
   },
 
   play: function() {
-    // this.startSpeech();
+    this.startSpeech();
     this.speechSynthesis.speak();
   },
 

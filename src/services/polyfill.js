@@ -28,12 +28,12 @@ var speechUtteranceChunker = function (utt, settings, callback) {
     }
     var chunk = chunkArr[0];
     newUtt = new SpeechSynthesisUtterance(chunk);
-    newUtt.voice =  'Google US English';
-    newUtt.voiceURI = 'Google US English';
     newUtt.lang = 'en-US';
-    newUtt.pitch = 0.8;
+    newUtt.pitch = 0.7;
     newUtt.rate = 1;
     newUtt.volume = 1;
+    newUtt.voice =  'Google US English';
+    newUtt.voiceURI = 'Google US English';
 
     var x;
     for (x in utt) {
