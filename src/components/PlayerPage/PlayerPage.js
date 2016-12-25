@@ -49,7 +49,7 @@ class PlayerPage extends React.Component {
     return (
       <div className="player-page">
         <Player
-          content={this.state.content}
+          content={this.state.content.join("")}
           initialized={this.state.initialized}
           headline={this.state.headlinePlay}
           playing={this.state.playing}

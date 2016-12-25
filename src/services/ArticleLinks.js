@@ -27,8 +27,6 @@ let articlesLinks = function(callback) {
         urls.push($(element).attr('href'));
         return index < 4;
       });
-
-      console.log('HERE ARE URLS', urls);
     }
     // Mapping through urls arrays then requesting
     Promise.all(urls.map(function (url) {
@@ -65,7 +63,6 @@ let articlesLinks = function(callback) {
     });
     // console.log(data);
     // Write content in JSON format locally
-
 
     var dataJSON = JSON.stringify(data, null, 4);
     console.log(dataJSON);

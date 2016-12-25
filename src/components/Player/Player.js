@@ -5,53 +5,57 @@ import React from 'react';
 
 class Player extends React.Component {
   playing;
+  article = this.props.content;
   clickHandler = this.props.click;
-  timeoutResumeInfinity;
-
-  resumeInfinity = () => {
-    console.log('resuming');
-    window.speechSynthesis.resume();
-    this.timeoutResumeInfinity = setTimeout(this.resumeInfinity, 1000);
-  }
-
-  clearResume = () => {
-    clearTimeout(this.timeoutResumeInfinity);
-  }
 
   setSpeechSynthesis = () => {
-    if ('speechSynthesis' in window) {
-      this.utterance = new window.SpeechSynthesisUtterance();
-      this.utterance.voice = 'Google US English';
-      this.utterance.voiceURI = 'Google US English';
-      this.utterance.lang = 'en-US';
-      this.utterance.pitch = 0.7;
-      this.utterance.rate = 1;
-      this.utterance.text = "  PRINCEVILLE, N.C. — Betty Cobb’s house is a shell nearly two months after floodwaters went halfway up the walls of her one-story home.   ";
-      this.utterance.volume = 1;
+    // Match Sentences including specified abbreviations.
+    let content = this.article.match(/((|Mr|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
+      if ('speechSynthesis' in window) {
+        this.utterance = new window.SpeechSynthesisUtterance();
+        this.utterance.voice = 'Google US English';
+        this.utterance.voiceURI = 'Google US English';
+        this.utterance.lang = 'en-US';
+        this.utterance.pitch = 0.7;
+        this.utterance.rate = 1;
+        this.utterance.text = content[0].toString();
+        this.utterance.volume = 1;
 
-    } else {
-      console.warn('The current browser does not support the speechSynthesis API.')
-    }
+        console.log(this.utterance);
+
+        // return this.utterance;
+    } else { console.warn('The current browser does not support the speechSynthesis API.') }
   }
+  //
+  // chunker = (str, size) => {
+  //   console.log(str);
+  //   let i;
+  //   let o, d;
+  //   let numChunks = Math.ceil(str.length / size),
+  //     chunks = new Array(numChunks);
+  //
+  //   for(i = 0, o = 0, d = 0; i < numChunks; i++, d =+ size) {
+  //     chunks[i] = str.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+  //     o += size;
+  //   }
+  //   console.log(chunks);
+  //   return chunks;
+  // }
+
 
   play = () => {
     this.setSpeechSynthesis();
-    this.resumeInfinity();
-    window.speechSynthesis.speak(this.utterance);
   }
 
   pause = () => {
-    this.clearResume();
     window.speechSynthesis.pause();
   }
 
   resume = () => {
-    this.resumeInfinity();
     window.speechSynthesis.resume();
   }
 
   stop = () => {
-    this.clearResume();
     console.log('stop');
     window.speechSynthesis.cancel();
   }

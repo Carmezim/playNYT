@@ -2,7 +2,7 @@ var speechUtteranceChunker = function (utt, settings, callback) {
   settings = settings || {};
   var newUtt;
   var txt = (settings && settings.offset !== undefined ? utt.text.substring(settings.offset) : utt.text);
-  if (utt.voice && utt.voice.voiceURI === 'Google US English') { // Not part of the spec
+  if (utt.voice && utt.voice.voiceURI === 'native') { // Not part of the spec
     newUtt = utt;
     newUtt.text = txt;
     newUtt.addEventListener('end', function () {
@@ -28,13 +28,6 @@ var speechUtteranceChunker = function (utt, settings, callback) {
     }
     var chunk = chunkArr[0];
     newUtt = new SpeechSynthesisUtterance(chunk);
-    newUtt.lang = 'en-US';
-    newUtt.pitch = 0.7;
-    newUtt.rate = 1;
-    newUtt.volume = 1;
-    newUtt.voice =  'Google US English';
-    newUtt.voiceURI = 'Google US English';
-
     var x;
     for (x in utt) {
       if (utt.hasOwnProperty(x) && x !== 'text') {
