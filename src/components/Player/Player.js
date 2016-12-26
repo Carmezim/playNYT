@@ -10,37 +10,31 @@ class Player extends React.Component {
 
   setSpeechSynthesis = () => {
     // Match Sentences including specified abbreviations.
-    let content = this.article.match(/((|Mr|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
-      if ('speechSynthesis' in window) {
+    let content = this.article.match(/((|Oct.|Dec.|Mr|Mr.|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
+    for (let i =0; i < content.length; i++) {
+      // if ('speechSynthesis' in window) {
         this.utterance = new window.SpeechSynthesisUtterance();
         this.utterance.voice = 'Google US English';
         this.utterance.voiceURI = 'Google US English';
         this.utterance.lang = 'en-US';
         this.utterance.pitch = 0.7;
         this.utterance.rate = 1;
-        this.utterance.text = content[0].toString();
         this.utterance.volume = 1;
+        this.utterance.text = content[i];
 
         console.log(this.utterance);
 
+        window.speechSynthesis.speak(this.utterance);
+
+
+        this.utterance.addEventListener('end', function () {
+          window.speechSynthesis.cancel();
+          console.log('ended');
+        })
         // return this.utterance;
-    } else { console.warn('The current browser does not support the speechSynthesis API.') }
+      // } else { console.warn('The current browser does not support the speechSynthesis API.') }
+    }
   }
-  //
-  // chunker = (str, size) => {
-  //   console.log(str);
-  //   let i;
-  //   let o, d;
-  //   let numChunks = Math.ceil(str.length / size),
-  //     chunks = new Array(numChunks);
-  //
-  //   for(i = 0, o = 0, d = 0; i < numChunks; i++, d =+ size) {
-  //     chunks[i] = str.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-  //     o += size;
-  //   }
-  //   console.log(chunks);
-  //   return chunks;
-  // }
 
 
   play = () => {
