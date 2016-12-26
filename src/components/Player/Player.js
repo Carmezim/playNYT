@@ -5,14 +5,12 @@ import React from 'react';
 
 class Player extends React.Component {
   playing;
-  article = this.props.content.join("");
   clickHandler = this.props.click;
 
   setSpeechSynthesis = () => {
-    // Match Sentences including specified abbreviations.
-    let content = this.article.match(/((|Oct.|Dec.|Mr|Mr.|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
-
     window.speechSynthesis.cancel();
+    // Match Sentences including specified abbreviations.
+    let content = this.props.content.join("").match(/((|Oct.|Dec.|Mr|Mr.|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
 
     for (let i = 0; i < content.length; i++) {
       if ('speechSynthesis' in window) {
@@ -69,13 +67,6 @@ class Player extends React.Component {
   // Click-handler managing Player component button
   handleClick() {
     switch(this.props.playing) {
-      case 'LIST_PLAY':
-        console.log('List article');
-        this.play();
-        this.playing = 'PLAYING';
-        console.log(this.playing);
-        break;
-
       case 'FIRST_PLAY':
         console.log('firstplay');
         this.play();
@@ -110,6 +101,10 @@ class Player extends React.Component {
     }
   }
   render(){
+    if(this.props.playing === 'LIST_PLAY'){
+      window.speechSynthesis.cancel();
+      this.play();
+    }
     return(
       <div>
         <h3 className="player">{this.props.headline}</h3>

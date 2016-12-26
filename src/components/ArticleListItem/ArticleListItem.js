@@ -13,7 +13,7 @@ class ArticleListItem extends React.Component {
     // Asserting if an utterance is being played it gets canceled
     this.playing = 'LIST_PLAY';
     // Sending data to PlayerPage component changing state
-    this.clickHandler(this.playing, true, this.props.headline, articleToPlay.content);
+    this.clickHandler(this.playing, true, articleToPlay.headline, articleToPlay.content);
   }
 
   render() {

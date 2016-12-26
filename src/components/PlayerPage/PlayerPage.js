@@ -11,7 +11,7 @@ class PlayerPage extends React.Component {
       articles: [],
       article: '',
       url: '',
-      headlinePlay: 'testing',
+      headlinePlay: '',
       headline: '',
       content: '',
       selected: '',
