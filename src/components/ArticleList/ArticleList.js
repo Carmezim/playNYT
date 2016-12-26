@@ -3,7 +3,6 @@ import ArticleListItem from '../ArticleListItem/ArticleListItem';
 // import speech from '../../services/Speech';
 
 class ArticleList extends React.Component {
-  playing = this.props.playing;
   render() {
     let article;
     if(this.props.articles) {
@@ -12,7 +11,7 @@ class ArticleList extends React.Component {
           <ArticleListItem
             initialized={this.props.initialized}
             key={index}
-            playing={this.playing}
+            playing={this.props.playing}
             articleContent={articleItem.content}
             article={articleItem}
             headline={articleItem.headline}

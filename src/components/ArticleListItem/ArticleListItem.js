@@ -1,25 +1,28 @@
 import React from 'react';
 
 class ArticleListItem extends React.Component {
-  // initializes variable that holds player state
+  // variable to hold player state
   playing;
-  // assign clickHandler function through props from PlayerPage component to class variable
+  // Pass clickHandler function through props from PlayerPage component
   clickHandler = this.props.click;
-  // initializes empty array used to hold map function indexes from ArticleList
+  // initialized flag
   initialized = this.props.initialized;
 
   // Handle clicks on articles listed immediately playing the audio of each article content
   handleClick(articleToPlay) {
-    // checks if list item holding article on list was already clicked by searching its index on firstClick array
-    this.playing = 'PLAYING';
-    this.clickHandler(articleToPlay.headline, this.playing, true, articleToPlay);
+    // Asserting if an utterance is being played it gets canceled
+    this.playing = 'LIST_PLAY';
+    // Sending data to PlayerPage component changing state
+    this.clickHandler(this.playing, true, this.props.headline, articleToPlay.content);
   }
 
   render() {
     return (
-      <li className="article-list-item" onClick={() => this.handleClick(this.props.article)}>
-        <h3>{this.props.headline}</h3>
-      </li>
+      <div className="article-list-item-container">
+        <li className="article-list-item" onClick={() => this.handleClick(this.props.article)}>
+          <h3>{this.props.headline}</h3>
+        </li>
+      </div>
     );
   }
 }

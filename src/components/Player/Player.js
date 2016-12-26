@@ -5,14 +5,17 @@ import React from 'react';
 
 class Player extends React.Component {
   playing;
-  article = this.props.content;
+  article = this.props.content.join("");
   clickHandler = this.props.click;
 
   setSpeechSynthesis = () => {
     // Match Sentences including specified abbreviations.
     let content = this.article.match(/((|Oct.|Dec.|Mr|Mr.|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
-    for (let i =0; i < content.length; i++) {
-      // if ('speechSynthesis' in window) {
+
+    window.speechSynthesis.cancel();
+
+    for (let i = 0; i < content.length; i++) {
+      if ('speechSynthesis' in window) {
         this.utterance = new window.SpeechSynthesisUtterance();
         this.utterance.voice = 'Google US English';
         this.utterance.voiceURI = 'Google US English';
@@ -22,33 +25,34 @@ class Player extends React.Component {
         this.utterance.volume = 1;
         this.utterance.text = content[i];
 
+        // Logging utterance
         console.log(this.utterance);
-
+        // Speak utterance
         window.speechSynthesis.speak(this.utterance);
-
-
-        this.utterance.addEventListener('end', function () {
-          window.speechSynthesis.cancel();
-          console.log('ended');
-        })
+        // Logging on speech start
+        this.utterance.onstart = () => {
+          console.log('starting speech');
+        }
         // return this.utterance;
-      // } else { console.warn('The current browser does not support the speechSynthesis API.') }
+      } else { console.warn('The current browser does not support the speechSynthesis API.') }
     }
+
   }
+  // Methods managing SpeechSynthesis actions
 
-
+  // Invoking function responsible for setting utterance with article and playing it.
   play = () => {
     this.setSpeechSynthesis();
   }
-
+  // Pause speech
   pause = () => {
     window.speechSynthesis.pause();
   }
-
+  // Resume paused speech
   resume = () => {
     window.speechSynthesis.resume();
   }
-
+  // Cancel speech freeing utterance queue
   stop = () => {
     console.log('stop');
     window.speechSynthesis.cancel();
@@ -62,42 +66,48 @@ class Player extends React.Component {
     stop();
   }
 
-
+  // Click-handler managing Player component button
   handleClick() {
-
     switch(this.props.playing) {
+      case 'LIST_PLAY':
+        console.log('List article');
+        this.play();
+        this.playing = 'PLAYING';
+        console.log(this.playing);
+        break;
+
       case 'FIRST_PLAY':
         console.log('firstplay');
         this.play();
         this.playing = 'PLAYING';
-        this.clickHandler(this.props.headline, this.playing, true);
+        this.clickHandler(this.playing, true, this.props.headline);
+        console.log(this.playing);
         break;
 
       case 'PLAYING':
         console.log('pause');
         this.pause();
         this.playing = 'PAUSED';
-        this.clickHandler(this.props.headline, this.playing);
+        this.clickHandler(this.playing);
         break;
 
       case 'PAUSED':
         console.log('resume');
         this.resume();
         this.playing = 'PLAYING';
-        this.clickHandler(this.props.headline, this.playing);
+        this.clickHandler(this.playing);
         break;
 
       case 'STOP':
         console.log('stop');
         this.stop();
         this.playing = 'STOPPED';
-        this.clickHandler(this.props.headline, this.playing);
+        this.clickHandler(this.playing);
         break;
 
       default: console.log('player error');
         break;
     }
-
   }
   render(){
     return(
