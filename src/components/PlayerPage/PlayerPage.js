@@ -29,9 +29,8 @@ class PlayerPage extends React.Component {
   }
   // validates if headline variable isn't empty
   validateHeadline = (state) => {
-
     let validation = {};
-    if (state.headlinePlay.length === 0 && state.content === null) {
+    if (this.state.headlinePlay.length === 0 && state.content === null) {
       validation.titleError = "Article can't be empty";
     }
     return Object.assign({}, state, validation);

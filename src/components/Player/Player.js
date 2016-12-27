@@ -10,7 +10,7 @@ class Player extends React.Component {
   setSpeechSynthesis = () => {
     window.speechSynthesis.cancel();
     // Match Sentences including specified abbreviations.
-    let content = this.props.content.join("").match(/((|Oct.|Dec.|Mr|Mr.|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
+    let content = this.props.content.join("").match(/((|Oct.|Dec.|Mr|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
 
     for (let i = 0; i < content.length; i++) {
       if ('speechSynthesis' in window) {
@@ -67,6 +67,14 @@ class Player extends React.Component {
   // Click-handler managing Player component button
   handleClick() {
     switch(this.props.playing) {
+      case 'LIST_PLAY':
+        console.log('List Play');
+        this.play();
+        this.playing = 'PLAYING';
+        this.clickHandler(this.playing, true, this.props.headline);
+        console.log(this.playing);
+        break;
+
       case 'FIRST_PLAY':
         console.log('firstplay');
         this.play();
@@ -76,17 +84,17 @@ class Player extends React.Component {
         break;
 
       case 'PLAYING':
-        console.log('pause');
+        console.log('paused');
         this.pause();
         this.playing = 'PAUSED';
-        this.clickHandler(this.playing);
+        this.clickHandler(this.playing, true, this.props.headline);
         break;
 
       case 'PAUSED':
-        console.log('resume');
+        console.log('resumed');
         this.resume();
         this.playing = 'PLAYING';
-        this.clickHandler(this.playing);
+        this.clickHandler(this.playing, true, this.props.headline);
         break;
 
       case 'STOP':
@@ -100,15 +108,20 @@ class Player extends React.Component {
         break;
     }
   }
-  render(){
+
+  listPlay = () => {
     if(this.props.playing === 'LIST_PLAY'){
-      window.speechSynthesis.cancel();
-      this.play();
+      console.log('list play');
+      this.handleClick();
     }
+  }
+
+  render(){
     return(
       <div>
         <h3 className="player">{this.props.headline}</h3>
         <button onClick={() => this.handleClick()}>Play</button>
+        {this.listPlay()}
         {this.props.playing}
       </div>
     );
