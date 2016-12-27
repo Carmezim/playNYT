@@ -18,8 +18,8 @@ class ArticleListItem extends React.Component {
 
   render() {
     return (
-      <div className="article-list-item-container">
-        <li className="article-list-item" onClick={() => this.handleClick(this.props.article)}>
+      <div className="article-list-item">
+        <li className="list-item" onClick={() => this.handleClick(this.props.article)}>
           <h3>{this.props.headline}</h3>
         </li>
       </div>

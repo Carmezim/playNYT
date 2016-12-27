@@ -118,9 +118,9 @@ class Player extends React.Component {
 
   render(){
     return(
-      <div className="player-container">
+      <div className="player">
         <h3 className="player-headline">{this.props.headline}</h3>
-        <button onClick={() => this.handleClick()}>{this.props.playing}</button>
+        <span onClick={() => this.handleClick()}>{this.props.playing}</span>
         {this.listPlay()}
       </div>
     );

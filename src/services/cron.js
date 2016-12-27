@@ -1,3 +1,4 @@
+/* eslint-disable */
 var exports,
 		timeUnits = ['second', 'minute', 'hour', 'dayOfMonth', 'month', 'dayOfWeek'],
 		spawn = require('child_process').spawn,
@@ -116,7 +117,7 @@ CronTime.prototype = {
 		var diff = Math.abs(targetSecond - now.getSeconds())
 		// there was a problem when `date` is 1424777177999 and `now` is 1424777178000
 		// 1 ms diff but this is another second...
-		if ( diff == 0 || (diff == 1 && now.getMilliseconds() <= date.milliseconds() ) ) {
+		if ( diff === 0 || (diff === 1 && now.getMilliseconds() <= date.milliseconds() ) ) {
 			//console.log('add 1 second?');
 			date = date.add(1, 's');
 		}
@@ -155,7 +156,7 @@ CronTime.prototype = {
 	 */
 	_getNextDateFrom: function(start) {
 		var date = moment(start);
-		if (date.toString() == 'Invalid date') {
+		if (date.toString() === 'Invalid date') {
 			console.log("ERROR: You specified an invalid date.");
 			return date;
 		}
@@ -198,7 +199,7 @@ CronTime.prototype = {
 
 			if (!(date.hours() in this.hour)) {
 				origDate = moment(date);
-				date.hours(date.hours() == 23 && diff > 86400000 ? 0 : date.hours() + 1);
+				date.hours(date.hours() === 23 && diff > 86400000 ? 0 : date.hours() + 1);
 				date.minutes(0);
 				date.seconds(0);
 				if (date <= origDate) {
@@ -209,7 +210,7 @@ CronTime.prototype = {
 
 			if (!(date.minutes() in this.minute)) {
 				origDate = moment(date);
-				date.minutes(date.minutes() == 59 && diff > 60 * 60 * 1000 ? 0 : date.minutes() + 1);
+				date.minutes(date.minutes() === 59 && diff > 60 * 60 * 1000 ? 0 : date.minutes() + 1);
 				date.seconds(0);
 				if (date <= origDate) {
 					date = this._findDST(origDate);
@@ -219,7 +220,7 @@ CronTime.prototype = {
 
 			if (!(date.seconds() in this.second)) {
 				origDate = moment(date);
-				date.seconds(date.seconds() == 59 && diff > 60 * 1000 ? 0 : date.seconds() + 1);
+				date.seconds(date.seconds() === 59 && diff > 60 * 1000 ? 0 : date.seconds() + 1);
 				if (date <= origDate) {
 					date = this._findDST(origDate);
 				}
@@ -355,7 +356,7 @@ function command2function(cmd) {
 
 function CronJob(cronTime, onTick, onComplete, startNow, timeZone, context, runOnInit) {
 	var _cronTime = cronTime;
-	if (typeof cronTime != "string" && arguments.length == 1) {
+	if (typeof cronTime !== "string" && arguments.length === 1) {
 		//crontime is an object...
 		onTick = cronTime.onTick;
 		onComplete = cronTime.onComplete;
@@ -380,7 +381,7 @@ function CronJob(cronTime, onTick, onComplete, startNow, timeZone, context, runO
 }
 
 var addCallback = function(callback) {
-	if (typeof callback == 'function') this._callbacks.push(callback);
+	if (typeof callback === 'function') this._callbacks.push(callback);
 }
 CronJob.prototype.addCallback = addCallback;
 
@@ -475,7 +476,7 @@ CronJob.prototype.stop = function() {
 	if (this._timeout)
 		clearTimeout(this._timeout);
 	this.running = false;
-	if (typeof this.onComplete == 'function') this.onComplete();
+	if (typeof this.onComplete === 'function') this.onComplete();
 }
 
 if (exports) {

@@ -5,7 +5,10 @@ import PlayerPage from './components/PlayerPage/PlayerPage';
 class App extends Component {
   render() {
     return (
-      <PlayerPage />
+      <div className="app">
+        <h1>playNYTimes</h1>
+        <PlayerPage />
+      </div>
     );
   }
 }
