@@ -1,8 +1,9 @@
 var articlesLinks = require('./ArticleLinks');
-var CronJob = require('cron').CronJob;
+var CronJob = require('./cron');
 
-var job = new CronJob('*/15 * * * * *', function () {
+var job = new CronJob.CronJob('*/120 * * * * *', function () {
+  console.log('CronJob Started, performing at each minute');
   articlesLinks();
 },null, true, 'America/New_York');
 
-// export default job;
+module.exports = job;

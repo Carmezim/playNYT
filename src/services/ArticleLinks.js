@@ -14,6 +14,7 @@ let articlesLinks = function(callback) {
 
   // Use request to grab the HTML defined in options and return the contents in "body"
   request(options, function (err, res, body) {
+    console.log('getting urls');
     if (!err && res.statusCode === 200) {
       var urls = [];
       var articleContent = [];
@@ -23,6 +24,7 @@ let articlesLinks = function(callback) {
       // Select element wrapping links
       var latestNews = $('ol.story-menu');
       // Fetch links
+      console.log('fetching first 5 articles links');
       latestNews.find('li > article > div > a').each(function (index, element) {
         urls.push($(element).attr('href'));
         return index < 4;
@@ -30,6 +32,7 @@ let articlesLinks = function(callback) {
     }
     // Mapping through urls arrays then requesting
     Promise.all(urls.map(function (url) {
+      console.log('getting article content');
       return new Promise(function(resolve, reject) {
         request({url: url, jar: true}, function (err, res, body) {
           if (err) { return reject(err); }
@@ -51,6 +54,8 @@ let articlesLinks = function(callback) {
     .then(function () {
     // Merge content organizing by data headline, url and content
     articleHeadline = _.groupBy(articleContent, function(item){
+      console.log( item.headline);
+
       return item.headline;
     });
 
@@ -61,9 +66,7 @@ let articlesLinks = function(callback) {
       content: _.pluck(item, 'content')
       }
     });
-    // console.log(data);
     // Write content in JSON format locally
-
     var dataJSON = JSON.stringify(data, null, 4);
     console.log(dataJSON);
     fs.writeFile("articles.json", dataJSON, function(err) {
@@ -78,7 +81,6 @@ let articlesLinks = function(callback) {
     });
   });
 };
-
 module.exports = articlesLinks;
 
 

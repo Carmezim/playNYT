@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleList from '../ArticleList/ArticleList';
 import Player from '../Player/Player';
-//import job from '../../services/CronJob';
+import job from '../../services/CronJob';
 import articlesData from '../../../articles.json';
 
 class PlayerPage extends React.Component {
@@ -37,6 +37,7 @@ class PlayerPage extends React.Component {
   }
 
   componentWillMount() {
+    job();
     this.setState({
       articles: articlesData,
       article: articlesData[0],
