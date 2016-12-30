@@ -75,7 +75,7 @@ class Player extends React.Component {
         console.log(this.playing);
         break;
 
-      case 'FIRST_PLAY':
+      case 'PLAY':
         console.log('firstplay');
         this.play();
         this.playing = 'PLAYING';

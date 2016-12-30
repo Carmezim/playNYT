@@ -34,7 +34,7 @@ html,body,div,span,h1,h3,ul,li {
   border:0;
   font:inherit;
   font-size:100%;
-  margin:0;
+  margin:0 auto;
   padding:0;
   vertical-align:baseline;
 }
@@ -50,7 +50,6 @@ html, body {
   background-color: black;
   color:#C8C7C8;
   width: 100%;
-  margin: 20%, 50%, 60%, 50%;
   padding: 80px;
   font-family: Cheltenham, Georgia;
   font-weight:300;
@@ -64,12 +63,13 @@ html, body {
 
 /* Typography */
 
-h1, h3 { color: #ffffff; font-weight: 200; }
+h1, h3 { color: #ffffff; font-weight: 300; }
 
 h1 {
   font-size: 48px;
   line-height: 56px;
-  margin: 20px 0 0 ;
+  margin: 20px 0 0;
+  position: top;
 }
 
 h3 {
@@ -77,9 +77,12 @@ h3 {
   line-height: 40px;
   margin: 4px 0 20px;
   font-size: 24px;
-  width: 70%;
+  width: 100%;
 }
-
+div.article-list-item {
+  width: 300px;
+  height: 200px;
+}
 /* CSS Transitions */
 * {
 -moz-transition:all 100ms ease;
@@ -92,48 +95,105 @@ transition:all 100ms ease;
 ::selection { background-color:#262223; color:#444; }
 ::-moz-selection { background-color:#262223; color:#444; }
 
-
-
 .app {
+  display: inline;
   position: relative;
   margin: 0 auto;
-  width: 700px;
+  width: 100%px;
 }
 .app > h1 {
-  text-align: center;
+  text-align: right;
   font-family: Cheltenham ,Georgia;
   font-weight: 700;
   font-size: 50px;
   width: 70%;
 }
 
-/* Article List */
-.article-list {
-  margin: 0;
-}
-
-/* Article List Item */
-.article-list-item {
-  background-color: #111;
-}
-
 /* Player */
 .player {
+  float: right;
   background-color:#111;
   font-family: Cheltenham ,Georgia;
-  margin: 60px 0 20px;
-  width: 70%;
+  margin: 2% 10% 70% 5%;
+  width: 35%;
 }
+
 .player h3 {
-  text-align: left;
+  text-align: inherit;
   line-height: 40px;
   font-size: 32px;
   padding: 10px 0px 20px;
+  overflow: hidden;
 
 }
 .player span {
+  width: 50px;
+  height: 50px;
+  background: black;
+  border: none;
+  cursor: pointer;
+  line-height: 20px;
+  font-size: 30px;
 
+}
+.player:hover {
+  background-color: #231F20;
+}
+.player span:hover {
+  background-color: white;
+}
+
+/* Article List */
+.article-list {
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  list-style: none;
+  height: 20%;
+  width: 20%;
+  margin: 1.5%;
+  padding: 2.5%;
+}
+
+/* Article List Item */
+.list-item {
+  background-color: #070606;
+  display: inline-block;
+
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  padding-bottom: 20%;
+  cursor: pointer;
+  overflow: hidden;
+
+}
+.list-item h3 {
+  font-size: 40px;
+  height:90%;
+  width: 90%;
+  padding: 5% 5% 15% 5%;
+}
+.list-item:hover {
+  background-color: #231F20;
+}
+
+/* Mixins */
+@mixin generate-gradient($color,$amount) {
+  background: -moz-linear-gradient(top, rgba($color,$amount) 0%, rgba($color,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba($color,$amount) 0%,rgba($color,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba($color,$amount) 0%,rgba($color,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 
+/* All Apple Products */
+html[data-useragent*="Apple"] .player { background-color:#000; }
+html[data-useragent*="Apple"] . { min-height:64px; top:12px; }
+html[data-useragent*="Apple"] .article-list-item li { background-color:#000; }
+html[data-useragent*="Apple"] .article-list-item li:hover { background-color:#080808; }
 

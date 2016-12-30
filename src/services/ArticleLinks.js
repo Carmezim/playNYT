@@ -65,7 +65,6 @@ let articlesLinks = function(callback) {
       content: _.pluck(item, 'content')
       }
     });
-    console.log('DATA', data);
     console.log('Data sample', data[0]);
     // Write content in JSON format locally
     var dataJSON = JSON.stringify(data, null, 4);

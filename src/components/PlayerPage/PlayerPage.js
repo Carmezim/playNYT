@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleList from '../ArticleList/ArticleList';
 import Player from '../Player/Player';
-// import job from '../../services/CronJob';
+import job from '../../services/CronJob';
 import articlesData from '../../../articles.json';
 
 class PlayerPage extends React.Component {
@@ -15,7 +15,7 @@ class PlayerPage extends React.Component {
       headline: '',
       content: '',
       selected: '',
-      playing: 'FIRST_PLAY',
+      playing: 'PLAY',
       index: null,
       initialized: false
     }
@@ -37,13 +37,16 @@ class PlayerPage extends React.Component {
   }
 
   componentWillMount() {
-    // job();
     this.setState({
       articles: articlesData,
       article: articlesData[0],
       content: articlesData[0].content,
       headlinePlay: articlesData[0].headline
     });
+  }
+
+  componentDidMount(){
+    job();
   }
 
   render() {
