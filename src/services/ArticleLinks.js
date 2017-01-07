@@ -39,7 +39,7 @@ let articlesLinks = function(callback) {
           // Fetching articles content
           var $ = cheerio.load(body);
           var title = $('h1.headline').text();
-          var writter = $('p.byline-dateline').text();
+          var writter = $('span.byline').text();
           var content = $('article.story.theme-main');
           console.log('getting article content');
           content.find('div > div > p.story-body-text').each(function (index, element) {

@@ -144,6 +144,7 @@ ul { list-style:none; }
   p {
     text-align: left;
     font-size: 12px;
+    margin-left: 2.5%;
   }
 
   /* CSS Transitions */
@@ -227,7 +228,7 @@ ul { list-style:none; }
     background-color: white;
   }
   .player button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   /* Article List */
@@ -246,7 +247,8 @@ ul { list-style:none; }
     -moz-column-height: 10%;
     column-height: 10%;
     width: 100%;
-    height: 15%;
+    height: 30%;
+    margin-bottom: 3%;
   }
 
   /* Article List Item */
@@ -256,6 +258,8 @@ ul { list-style:none; }
     display: inline-block;
     margin: 0 auto;
     cursor: pointer;
+    width: 100%;
+    height: 60%;
 
   }
   .list-item h3 {
@@ -265,14 +269,18 @@ ul { list-style:none; }
     width: 90%;
     padding: 5% 2.5% 5% 2.5%;
   }
+  .list-item p {
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
   .list-item:hover {
     background-color: #181818;
     transform: scale(1.05);
   }
-    div.article-list-item {
-      width: 25%;
-      height: 25%;
-    }
+  div.article-list-item {
+    width: 25%;
+    height: 25%;
+  }
 }
 /* Mixins */
 @mixin generate-gradient($color,$amount) {
