@@ -39,16 +39,18 @@ let articlesLinks = function(callback) {
           // Fetching articles content
           var $ = cheerio.load(body);
           var title = $('h1.headline').text();
+          var writter = $('p.byline-dateline').text();
           var content = $('article.story.theme-main');
           console.log('getting article content');
           content.find('div > div > p.story-body-text').each(function (index, element) {
             articleContent.push({
               url: url,
               content: ' ' + $(element).text(),
-              headline: title
+              headline: title,
+              author: writter
             });
           });
-          resolve({articleContent: articleContent, content: content, url: url, title: title});
+          resolve({articleContent: articleContent, content: content, url: url, title: title, writter: writter});
         });
       });
     }))
@@ -61,6 +63,7 @@ let articlesLinks = function(callback) {
     data = _.map(articleHeadline, function(item) {
       return {
       headline: item[0].headline,
+      author: item[0].author,
       url: item[0].url,
       content: _.pluck(item, 'content')
       }
@@ -81,7 +84,7 @@ let articlesLinks = function(callback) {
     });
   });
 };
-
+articlesLinks();
 module.exports = articlesLinks;
 
 

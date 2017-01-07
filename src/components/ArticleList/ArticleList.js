@@ -14,6 +14,7 @@ class ArticleList extends React.Component {
             articleContent={articleItem.content}
             article={articleItem}
             headline={articleItem.headline}
+            author={articleItem.author}
             click={this.props.click}
           />
         );

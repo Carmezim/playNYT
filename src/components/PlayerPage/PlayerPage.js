@@ -14,6 +14,7 @@ class PlayerPage extends React.Component {
       headlinePlay: '',
       headline: '',
       content: '',
+      author: '',
       selected: '',
       playing: 'PLAY',
       index: null,
@@ -21,8 +22,8 @@ class PlayerPage extends React.Component {
     }
   }
   // Handle state changes through props from children to parent component.
-  clickHandlerPlayer = (isPlaying, isInitialized, headlineOnPlayer, articleContent) => {
-    let nextState = Object.assign({}, this.state, {playing: isPlaying, initialized: isInitialized, headlinePlay: headlineOnPlayer, content: articleContent      });
+  clickHandlerPlayer = (isPlaying, isInitialized, headlineOnPlayer, author, articleContent) => {
+    let nextState = Object.assign({}, this.state, {playing: isPlaying, initialized: isInitialized, headlinePlay: headlineOnPlayer, author: author, content: articleContent});
     this.setState(this.validateHeadline(nextState));
   }
   // validates if headline variable isn't empty
@@ -39,7 +40,8 @@ class PlayerPage extends React.Component {
       articles: articlesData,
       article: articlesData[0],
       content: articlesData[0].content,
-      headlinePlay: articlesData[0].headline
+      headlinePlay: articlesData[0].headline,
+      author: articlesData[0].author
     });
   }
 
@@ -55,11 +57,13 @@ class PlayerPage extends React.Component {
           initialized={this.state.initialized}
           headline={this.state.headlinePlay}
           playing={this.state.playing}
+          author={this.state.author}
           click={this.clickHandlerPlayer} />
         <ArticleList
           initialized={this.state.initialized}
           playing={this.state.playing}
           articles={this.state.articles}
+          author={this.state.author}
           click={this.clickHandlerPlayer} />
       </div>
     );

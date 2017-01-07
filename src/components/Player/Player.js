@@ -73,7 +73,7 @@ class Player extends React.Component {
         this.play();
         this.playing = 'PLAYING';
         this.buttonState = 'paused';
-        this.clickHandler(this.playing, true, this.props.headline);
+        this.clickHandler(this.playing, true, this.props.headline, this.props.author);
         console.log(this.playing);
         break;
 
@@ -82,7 +82,7 @@ class Player extends React.Component {
         this.play();
         this.playing = 'PLAYING';
         this.buttonState = 'paused'
-        this.clickHandler(this.playing, true, this.props.headline);
+        this.clickHandler(this.playing, true, this.props.headline, this.props.author);
         console.log(this.playing);
         break;
 
@@ -91,7 +91,7 @@ class Player extends React.Component {
         this.pause();
         this.playing = 'PAUSED';
         this.buttonState = 'play'
-        this.clickHandler(this.playing, true, this.props.headline);
+        this.clickHandler(this.playing, true, this.props.headline, this.props.author);
         break;
 
       case 'PAUSED':
@@ -99,7 +99,7 @@ class Player extends React.Component {
         this.resume();
         this.playing = 'PLAYING';
         this.buttonState = 'paused';
-        this.clickHandler(this.playing, true, this.props.headline);
+        this.clickHandler(this.playing, true, this.props.headline, this.props.author);
         break;
 
       case 'STOP':
@@ -125,6 +125,7 @@ class Player extends React.Component {
     return(
       <div className="player">
         <h3 className="player-headline">{this.props.headline}</h3>
+        <p>{this.props.author}</p>
         <button className={this.buttonState} onClick={() => this.handleClick()}></button>
         {this.listPlay()}
       </div>
