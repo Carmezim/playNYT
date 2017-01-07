@@ -19,28 +19,83 @@
 
 /* Mobile */
 
-@media only screen and (max-width: 767px) {
-  .container { width:300px; }
+@media only screen and (min-width: 300px) and (max-width: 440px) {
+  /* Basic Styles */
+
+  html, body {
+    -webkit-font-smoothing:antialiased;
+    /*-webkit-text-size-adjust:100%;*/
+    background-color: black;
+    color:#C8C7C8;
+    width: 20%;
+    font-family: Cheltenham, Georgia;
+    font-weight:700;
+  }
+  * {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* Player */
+  .player {
+    background-color:#070606;
+    font-family: Cheltenham ,Georgia;
+    margin: 0 auto;
+    width: 20%;
+    height: 10%;
+    text-align: center;
+    overflow: auto;
+  }
+
+  .player h3 {
+    width: 90%;
+    height: 50%;
+    line-height: 20px;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 2.5% 5% 5% 5%;
+
+  }
+  .player span {
+    margin-top: 10%;
+    width: 40%;
+    height: 40%;
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    background: transparent;
+    border: solid #070606;
+    cursor: pointer;
+    font-size: 30px;
+
+  }
+  .player:hover {
+    background-color: #231F20;
+  }
+  .player span.on:active {
+    content: "Hide";
+  }
+
 }
 
  /* Mobile Landscape */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .container { width:420px; }
 }
 
 /* CSS Reset */
 
 html,body,div,span,h1,h3,ul,li {
   border:0;
-  font:inherit;
-  font-size:100%;
-  margin:0 auto;
+  font: Cheltenham ,Georgia;
+  font-size: 100%;
+  margin: 0 auto;
   padding:0;
-  vertical-align:baseline;
+  /*vertical-align:baseline;*/
 }
 
-body { line-height:1; }
+body { line-height: 1; width: 1224px;}
 ul { list-style:none; }
+
+@media only screen and (min-width: 768px)  and (max-width: 2048px) {
 
 /* Basic Styles */
 
@@ -50,11 +105,8 @@ html, body {
   background-color: black;
   color:#C8C7C8;
   width: 100%;
-  padding: 80px;
   font-family: Cheltenham, Georgia;
-  font-weight:300;
-  padding:5px 0;
-
+  font-weight:700;
 }
 * {
   -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -63,27 +115,29 @@ html, body {
 
 /* Typography */
 
-h1, h3 { color: #ffffff; font-weight: 300; }
+h1, h3 { color: #ffffff; font-weight: 500; margin: 0 auto;}
 
 h1 {
-  font-size: 48px;
-  line-height: 56px;
-  margin: 20px 0 0;
-  position: top;
+  text-align: center;
+  font-size: 46px;
+  line-height: 50px;
+  margin: 40px auto 30px;
+  font-weight: 700;
 }
-
 h3 {
   min-height: 3em;
   line-height: 40px;
-  margin: 4px 0 20px;
   font-size: 24px;
   width: 100%;
 }
 div.article-list-item {
-  width: 300px;
-  height: 200px;
+  width: 25%;
+  height: 25%;
 }
+
+
 /* CSS Transitions */
+
 * {
 -moz-transition:all 100ms ease;
 -o-transition:all 100ms ease;
@@ -96,92 +150,108 @@ transition:all 100ms ease;
 ::-moz-selection { background-color:#262223; color:#444; }
 
 .app {
-  display: inline;
-  position: relative;
+  dispaly: block;
   margin: 0 auto;
   width: 100%px;
 }
-.app > h1 {
-  text-align: right;
-  font-family: Cheltenham ,Georgia;
-  font-weight: 700;
-  font-size: 50px;
-  width: 70%;
-}
 
 /* Player */
-.player {
-  float: right;
-  background-color:#111;
+
+  .player {
+  background-color: #090909;
   font-family: Cheltenham ,Georgia;
-  margin: 2% 10% 70% 5%;
-  width: 35%;
+  margin: 0 auto;
+  width: 25%;
+  height: 10%;
+  text-align: center;
 }
 
 .player h3 {
-  text-align: inherit;
-  line-height: 40px;
-  font-size: 32px;
-  padding: 10px 0px 20px;
+  line-height: 30px;
+  font-size: 30px;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
   overflow: hidden;
 
 }
-.player span {
-  width: 50px;
-  height: 50px;
-  background: black;
-  border: none;
-  cursor: pointer;
-  line-height: 20px;
-  font-size: 30px;
+
+/* Button state */
+.play {
+  height:60px;
+  width:60px;
+  background: url("../play-icon-300.png");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid white;
+
+  /*width: 5%;*/
+  /*height: 5%;*/
+  /*-moz-border-radius: 5%;*/
+  /*-webkit-border-radius: 5%;*/
+  /*border-radius: 5%;*/
+  /*background: white;*/
+  /*border: solid #070606;*/
+  /*cursor: pointer;*/
+  /*font-size: 22px;*/
 
 }
-.player:hover {
+.paused {
+  height:60px;
+  width:60px;
+  background: url("../paused-button.png");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.player:active {
   background-color: #231F20;
 }
-.player span:hover {
+.player button:active {
   background-color: white;
 }
 
 /* Article List */
 .article-list {
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-  column-count: 3;
-  column-gap: 20px;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-  list-style: none;
-  height: 20%;
-  width: 20%;
-  margin: 1.5%;
-  padding: 2.5%;
+  align-text:left;
+  -webkit-columns: 1;
+  -moz-columns: 1;
+  columns: 1;
+  -webkit-column-gap: 1.5em;
+  -moz-column-gap: 1.5em;
+  column-gap: 1.5em;
+  -webkit-column-width: 10%;
+  -moz-column-width: 10%;
+  column-width: 10%;
+  -webkit-column-height: 10%;
+  -moz-column-height: 10%;
+  column-height: 10%;
+  width: 100%;
+  height: 15%;
 }
 
 /* Article List Item */
-.list-item {
-  background-color: #070606;
-  display: inline-block;
 
-  margin: auto;
-  width: 300px;
-  height: 200px;
-  padding-bottom: 20%;
+.list-item {
+  background-color: #090909;
+  display: inline-block;
+  margin: 0 auto;
   cursor: pointer;
-  overflow: hidden;
 
 }
 .list-item h3 {
-  font-size: 40px;
-  height:90%;
+  text-align: left;
+  font-size: 28px;
+  height:40%;
   width: 90%;
-  padding: 5% 5% 15% 5%;
+  padding: 5% 2.5% 5% 2.5%;
 }
 .list-item:hover {
-  background-color: #231F20;
+  background-color: #181818;
 }
-
+}
 /* Mixins */
 @mixin generate-gradient($color,$amount) {
   background: -moz-linear-gradient(top, rgba($color,$amount) 0%, rgba($color,0) 100%); /* FF3.6-15 */

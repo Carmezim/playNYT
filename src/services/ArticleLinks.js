@@ -81,10 +81,7 @@ let articlesLinks = function(callback) {
     });
   });
 };
+
 module.exports = articlesLinks;
-
-
-
-
 
 

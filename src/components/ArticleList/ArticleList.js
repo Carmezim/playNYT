@@ -1,7 +1,6 @@
 import React from 'react';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
 // import speech from '../../services/Speech';
-
 class ArticleList extends React.Component {
   render() {
     let article;

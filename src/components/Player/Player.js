@@ -5,6 +5,7 @@ import React from 'react';
 
 class Player extends React.Component {
   playing;
+  buttonState = 'play';
   clickHandler = this.props.click;
 
   setSpeechSynthesis = () => {
@@ -71,6 +72,7 @@ class Player extends React.Component {
         console.log('List Play');
         this.play();
         this.playing = 'PLAYING';
+        this.buttonState = 'paused';
         this.clickHandler(this.playing, true, this.props.headline);
         console.log(this.playing);
         break;
@@ -79,6 +81,7 @@ class Player extends React.Component {
         console.log('firstplay');
         this.play();
         this.playing = 'PLAYING';
+        this.buttonState = 'paused'
         this.clickHandler(this.playing, true, this.props.headline);
         console.log(this.playing);
         break;
@@ -87,6 +90,7 @@ class Player extends React.Component {
         console.log('paused');
         this.pause();
         this.playing = 'PAUSED';
+        this.buttonState = 'play'
         this.clickHandler(this.playing, true, this.props.headline);
         break;
 
@@ -94,6 +98,7 @@ class Player extends React.Component {
         console.log('resumed');
         this.resume();
         this.playing = 'PLAYING';
+        this.buttonState = 'paused';
         this.clickHandler(this.playing, true, this.props.headline);
         break;
 
@@ -120,7 +125,7 @@ class Player extends React.Component {
     return(
       <div className="player">
         <h3 className="player-headline">{this.props.headline}</h3>
-        <span onClick={() => this.handleClick()}>{this.props.playing}</span>
+        <button className={this.buttonState} onClick={() => this.handleClick()}></button>
         {this.listPlay()}
       </div>
     );
