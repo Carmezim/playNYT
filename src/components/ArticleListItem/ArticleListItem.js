@@ -28,4 +28,11 @@ class ArticleListItem extends React.Component {
   }
 }
 
+ArticleListItem.propTypes = {
+  headline: React.PropTypes.string.isRequired,
+  author: React.PropTypes.string.isRequired,
+  click: React.PropTypes.func.isRequired,
+  initialized: React.PropTypes.bool.isRequired
+};
+
 export default ArticleListItem;

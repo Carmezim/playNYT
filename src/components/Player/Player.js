@@ -149,4 +149,11 @@ class Player extends React.Component {
   }
 };
 
+Player.propTypes = {
+  author: React.PropTypes.string.isRequired,
+  playing: React.PropTypes.string.isRequired,
+  click: React.PropTypes.func.isRequired,
+  content: React.PropTypes.array.isRequired
+}
+
 export default Player;
