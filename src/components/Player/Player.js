@@ -8,16 +8,26 @@ class Player extends React.Component {
   buttonState = 'play';
   clickHandler = this.props.click;
 
-  setSpeechSynthesis = () => {
-    window.speechSynthesis.cancel();
-    // Match Sentences including specified abbreviations.
-    let content = this.props.content.join("").match(/((|Oct.|Dec.|Gov.|B.|C.|W.|I.|A.|P.|J.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
+  // Fetch API voices
+  voices = window.speechSynthesis.getVoices();
 
-    for (let i = 0; i < content.length; i++) {
-      if ('speechSynthesis' in window) {
+  // Handle Speech
+  setSpeechSynthesis = () => {
+    // Making sure to free utterance queue
+    window.speechSynthesis.cancel();
+
+    // Provisory solution to match sentences including specified abbreviations
+    let content = this.props.content.join("").match(/((|Oct.|ST.|Dec.|Gov.|B.|C.|W.|I.|A.|P.|J.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
+
+    // Check SpeechSynthesis is supported on browser
+    if ('speechSynthesis' in window) {
+
+      // Speak content divided in smaller sizes at a time to bypass API character limit bug
+      for (let i = 0; i < content.length; i++) {
+
         this.utterance = new window.SpeechSynthesisUtterance();
-        this.utterance.voice = 'native';
-        this.utterance.voiceURI = 'native';
+        this.utterance.voice = this.voices[3];
+        this.utterance.voiceURI = this.voices[3];
         this.utterance.lang = 'en-US';
         this.utterance.pitch = 0.7;
         this.utterance.rate = 1;
@@ -32,11 +42,13 @@ class Player extends React.Component {
         this.utterance.onstart = () => {
           console.log('starting speech');
         }
-        // return this.utterance;
-      } else { console.warn('The current browser does not support the speechSynthesis API.') }
-    }
+
+      }
+
+    } else { console.warn('The current browser does not support the speechSynthesis API.') }
 
   }
+
   // Methods managing SpeechSynthesis actions
 
   // Invoking function responsible for setting utterance with article and playing it.
@@ -122,6 +134,10 @@ class Player extends React.Component {
   }
 
   render(){
+    // Avoids voices changing mid speech due async nature of getVoices() method
+    window.speechSynthesis.onvoiceschanged = () => {
+      this.voices = window.speechSynthesis.getVoices();
+    };
     return(
       <div className="player">
         <h3 className="player-headline">{this.props.headline}</h3>
