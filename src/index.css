@@ -11,12 +11,20 @@
 }
 
 
-/* Tablet */
-
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .container { width:556px; }
+/* Mobile Landscape */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 }
 
+/* CSS Reset */
+
+html,body,div,span,h1,h3,ul,li {
+  border:0;
+  font: Cheltenham ,Georgia;
+  font-size: 100%;
+  margin: 0 auto;
+  padding:0;
+  /*vertical-align:baseline;*/
+}
 
 
 
@@ -50,7 +58,6 @@
 
   h1 {
     text-align: center;
-    line-height: 46px;
     margin: 0;
     font-weight: 700;
   }
@@ -87,9 +94,9 @@
   }
 
   .app h1 {
-    font-size: 36px;
-    padding-top: 3%;
-    padding-bottom: 8%;
+    font-size: 50px;
+    padding-top: 5%;
+    padding-bottom: 12%;
   }
 
   /* Player */
@@ -105,7 +112,7 @@
 
   .player h3 {
     font-size: 26px;
-    padding: 5px 0px 5px 0px;
+    padding: 1% 0 5% 0;
     text-align: center;
     overflow: hidden;
 
@@ -116,6 +123,7 @@
   /* Button state */
   .player button {
     margin: 3% auto 1.5%;
+    background-color: #090909;
   }
 
   .play {
@@ -167,7 +175,7 @@
     width: 100%;
     height: 30%;
     margin: 2% auto 10%;
-    /*margin-bottom: 3%;*/
+    overflow-y: auto;
   }
 
   /* Article List Item */
@@ -213,6 +221,178 @@ html,body,div,span,h1,h3,ul,li {
   margin: 0 auto;
   padding:0;
   /*vertical-align:baseline;*/
+}
+
+
+
+
+/* ----------------------- Tablet ---------------------- */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+
+  /* Basic Styles */
+
+  html, body {
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    background-color: black;
+    color:#C8C7C8;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Cheltenham, Georgia;
+    font-weight:700;
+  }
+  * {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* Typography */
+
+  h1, h3 { color: #ffffff; font-weight: 500; margin: 0 auto; }
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+  }
+  h3 {
+    line-height: 44px;
+    font-size: 38px;
+    width: 100%;
+  }
+  p {
+    text-align: left;
+    font-size: 14px;
+    margin-left: 2.5%;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* CSS Transitions */
+
+  * {
+    -moz-transition:all 100ms ease;
+    -o-transition:all 100ms ease;
+    -webkit-transition:all 100ms ease;
+    transition:all 100ms ease;
+  }
+
+  /* Highlight Styles */
+  ::selection { background-color:#262223; color:#444; }
+  ::-moz-selection { background-color:#262223; color:#444; }
+
+  .app {
+    margin: 0 auto;
+    width: 60%;
+    height: 60%;
+  }
+
+  .app h1 {
+    font-size: 66px;
+    padding-top: 5%;
+    padding-bottom: 7%;
+  }
+
+  /* Player */
+
+  .player {
+    background-color: #090909;
+    font-family: Cheltenham ,Georgia;
+    margin: 0 auto 10%;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+  }
+
+  .player h3 {
+    padding: 1% 0 5% 0;
+    text-align: center;
+    overflow: hidden;
+
+  }
+  .player p {
+    text-align: center;
+  }
+  /* Button state */
+  .player button {
+    margin: 3% auto 1.5%;
+    background-color: #090909;
+  }
+
+  .play {
+    height:80px;
+    width:80px;
+    background: url("../assets/play-icon-300.png");
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    -moz-border-radius: 5%0;
+    -webkit-border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+
+  }
+  .paused {
+    height:80px;
+    width:80px;
+    background: url("../assets/paused-button.png");
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    -moz-border-radius: 5%0;
+    -webkit-border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+
+  .player button:active {
+    /*background-color: #231F20;*/
+    transform: scale(1.05);
+  }
+
+  /* Article List */
+  .article-list {
+    align-text:left;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    columns: 1;
+    -webkit-column-gap: 1.5em;
+    -moz-column-gap: 1.5em;
+    column-gap: 1.5em;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
+    -webkit-column-height: 20%;
+    -moz-column-height: 20%;
+    column-height: 20%;
+    width: 100%;
+    margin: 2% auto 10%;
+  }
+
+  /* Article List Item */
+
+  .list-item {
+    background-color: #090909;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 100%;
+
+  }
+  .list-item h3 {
+    text-align: left;
+    font-size: 34px;
+    width: 100%;
+    padding: 5% 2.5% 5% 2.5%;
+  }
+
+  .list-item:active {
+    background-color: #181818;
+    transform: scale(1.025);
+  }
 }
 
 

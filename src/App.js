@@ -8,7 +8,7 @@ class App extends Component {
       <div className="app">
         <h1>playNYTimes</h1>
         <PlayerPage />
-        <footer> © 2017 Made by Adriano Carmezim Filho. Articles material and icon belong to The New York Times Company. All Rights Reserved.</footer>
+        <footer> © 2017 Adriano Carmezim Filho. All articles material and logo belong to The New York Times Company. All Rights Reserved.</footer>
       </div>
     );
   }
