@@ -16,8 +16,8 @@ class Player extends React.Component {
     for (let i = 0; i < content.length; i++) {
       if ('speechSynthesis' in window) {
         this.utterance = new window.SpeechSynthesisUtterance();
-        this.utterance.voice = 'Google US English';
-        this.utterance.voiceURI = 'Google US English';
+        this.utterance.voice = 'native';
+        this.utterance.voiceURI = 'native';
         this.utterance.lang = 'en-US';
         this.utterance.pitch = 0.7;
         this.utterance.rate = 1;
