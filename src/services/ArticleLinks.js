@@ -84,7 +84,7 @@ let articlesLinks = function(callback) {
     });
   });
 };
-articlesLinks();
+
 module.exports = articlesLinks;
 
 

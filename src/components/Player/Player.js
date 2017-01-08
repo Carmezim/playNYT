@@ -11,7 +11,7 @@ class Player extends React.Component {
   setSpeechSynthesis = () => {
     window.speechSynthesis.cancel();
     // Match Sentences including specified abbreviations.
-    let content = this.props.content.join("").match(/((|Oct.|Dec.|Mr|Dr|Ms\.)|[^.?]+?)*[.?]/gi);
+    let content = this.props.content.join("").match(/((|Oct.|Dec.|Gov.|B.|C.|W.|I.|A.|P.|J.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
 
     for (let i = 0; i < content.length; i++) {
       if ('speechSynthesis' in window) {
