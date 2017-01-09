@@ -108,7 +108,7 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   .moto {
-    visibility: hidden;:
+    visibility: hidden;
     position: absolute;
     font-size: 18px;
     margin-top: -7%;
@@ -129,8 +129,8 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   .player h3 {
-    font-size: 26px;
-    padding: 1% 0 2.5% 0;
+    font-size: 28px;
+    padding: 1% 0.4% 2.5% 0.4%;
     text-align: center;
     overflow: hidden;
 
@@ -451,6 +451,7 @@ html,body,div,span,h1,h3,ul,li {
     max-width: 150px;
     max-heigh: 150px;
   }
+
   /* Typography */
 
   h1, h3 { color: #ffffff; font-weight: 500; margin: 0 auto;}

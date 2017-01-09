@@ -17,7 +17,7 @@ class Player extends React.Component {
     window.speechSynthesis.cancel();
 
     // Provisory solution to match sentences including specified abbreviations
-    let content = this.props.content.join("").match(/((|Oct.|ST.|Dec.|Gov.|B.|C.|W.|I.|A.|P.|J.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
+    let content = this.props.content.join("").match(/((|Oct.|ST. |Dec.|Gov.|Mo.|A.|B.|C.|W.|I.|L.|U.|P.|J.|N.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
 
     // Check SpeechSynthesis is supported on browser
     if ('speechSynthesis' in window) {
@@ -26,10 +26,10 @@ class Player extends React.Component {
       for (let i = 0; i < content.length; i++) {
 
         this.utterance = new window.SpeechSynthesisUtterance();
-        this.utterance.voice = this.voices[3];
-        this.utterance.voiceURI = this.voices[3];
+        this.utterance.voice = this.voices[2];
+        this.utterance.voiceURI = this.voices[2];
         this.utterance.lang = 'en-US';
-        this.utterance.pitch = 0.7;
+        this.utterance.pitch = 0.65;
         this.utterance.rate = 1;
         this.utterance.volume = 1;
         this.utterance.text = content[i];
@@ -153,7 +153,7 @@ Player.propTypes = {
   author: React.PropTypes.string.isRequired,
   playing: React.PropTypes.string.isRequired,
   click: React.PropTypes.func.isRequired,
-  content: React.PropTypes.array.isRequired
+  content: React.PropTypes.array
 }
 
 export default Player;
