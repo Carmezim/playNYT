@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>playNYT <img src="http://icons.iconarchive.com/icons/martz90/circle-addon1/512/new-york-times-icon.png"/></h1>
+        <h1>playNYT <img src="http://icons.iconarchive.com/icons/martz90/circle-addon1/512/new-york-times-icon.png" alt="NYT-logo"/></h1>
         <div className="moto top">Same Iconic Content</div>
         <div className="moto bottom">New Experience</div>
         <PlayerPage />
