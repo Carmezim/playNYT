@@ -296,6 +296,18 @@ html,body,div,span,h1,h3,ul,li {
 
   /* CSS Transitions */
 
+  
+  .moto {
+	visibility:hidden;
+    position: absolute;
+    text-align: left;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 1%;
+    color: #3E3E3E;
+    opacity:0;
+
+  }  
   * {
     -moz-transition:all 100ms ease;
     -o-transition:all 100ms ease;
@@ -306,7 +318,7 @@ html,body,div,span,h1,h3,ul,li {
   /* Highlight Styles */
   ::selection { background-color:#262223; color:#444; }
   ::-moz-selection { background-color:#262223; color:#444; }
-
+  
   .app {
     margin: 0 auto;
     width: 60%;
@@ -438,25 +450,13 @@ html,body,div,span,h1,h3,ul,li {
     margin: 0;
     font-family: Cheltenham, Georgia;
     font-weight:700;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    z-index: -100;
   }
-  /*body{*/
-    /*background: transparent ;*/
-  /*}*/
-  /*body::before{*/
-    /*display:block;*/
-    /*position:absolute;*/
-    /*top:0;*/
-    /*bottom:0;*/
-    /*left:0;*/
-    /*right:0;*/
-    /*background: url(https://upload.wikimedia.org/wikipedia/commons/b/b8/New_York_Times_Frontpage_1914-07-29.png)  no-repeat ;*/
-    /*background-size:cover;*/
-    /*overflow:hidden;*/
-    /*z-index:-1000;*/
-    /*height:100%;*/
-    /*width:100%;*/
-    /*opacity:0.8;*/
-  /*}*/
   * {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     -webkit-tap-highlight-color:transparent;
@@ -469,6 +469,7 @@ html,body,div,span,h1,h3,ul,li {
     max-width: 150px;
     max-heigh: 150px;
   }
+
 
   /* Typography */
 
