@@ -498,9 +498,9 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   /* CSS Transitions */
-  @-webkit-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 65% { opacity: 0;} 100% { opacity: 0;} }
-  @-moz-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 65% { opacity: 0;} 100% { opacity: 0;} }
-  @keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; }  65% { opacity: 0;} 100% { opacity: 0;} }
+  @-webkit-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
+  @-moz-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
+  @keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; }  82% { opacity: 0;} 100% { opacity: 0;} }
 
   @-webkit-keyframes title { from { opacity:0; } to { opacity:1; } }
   @-moz-keyframes title { from { opacity:0; } to { opacity:1; } }
@@ -509,9 +509,11 @@ html,body,div,span,h1,h3,ul,li {
 
   .moto {
     position: absolute;
+    text-align: left;
     font-weight: 500;
-    font-size: 65px;
-    margin-left: 2.5%;
+    font-size: 69px;
+    margin-left: 1%;
+    color: #3E3E3E;
     opacity:0;
 
     -webkit-animation:fadeIn ease-in 1;
@@ -522,23 +524,23 @@ html,body,div,span,h1,h3,ul,li {
     -moz-animation-fill-mode:forwards alternate;
     animation-fill-mode:forwards alternate;
 
-    -webkit-animation-duration:3.5s;
-    -moz-animation-duration:3.5s;
-    animation-duration:3.5s;
+    -webkit-animation-duration:3.7s;
+    -moz-animation-duration:3.7s;
+    animation-duration:3.7s;
   }
 
   .moto.top {
-    -webkit-animation-delay: 2s;
-    -moz-animation-delay:2s;
-    animation-delay: 2s;
-    padding-top: 3%;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay:1s;
+    animation-delay: 1s;
+    padding: 13.5% 0 0 0;
   }
 
   .moto.bottom {
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    animation-delay: 1s;
-    padding: 7.5% 0 0 0;
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    padding-top: 8.5%;
   }
 
   .app img {
@@ -551,13 +553,13 @@ html,body,div,span,h1,h3,ul,li {
     -moz-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
 
-    -webkit-animation-duration:2.5s;
-    -moz-animation-duration:2.5s;
-    animation-duration:2.5s;
+    -webkit-animation-duration:2.25s;
+    -moz-animation-duration:2.25s;
+    animation-duration:2.25s;
 
-    -webkit-animation-delay: 3.5s;
-    -moz-animation-delay:3.5s;
-    animation-delay: 3.5s;
+    -webkit-animation-delay: 3.4s;
+    -moz-animation-delay:3.4s;
+    animation-delay: 3.4s;
   }
 
   .app h1 {
@@ -570,9 +572,9 @@ html,body,div,span,h1,h3,ul,li {
     -moz-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
 
-    -webkit-animation-duration:2.5s;
-    -moz-animation-duration:2.5s;
-    animation-duration:2.5s;
+    -webkit-animation-duration:2.25s;
+    -moz-animation-duration:2.25s;
+    animation-duration:2.25s;
 
     -webkit-animation-delay: 3.2s;
     -moz-animation-delay:3.2s;
@@ -595,7 +597,6 @@ html,body,div,span,h1,h3,ul,li {
     width: 100%;
     height: 100%;
   }
-
 
   /* Player */
 
