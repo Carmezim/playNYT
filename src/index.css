@@ -439,6 +439,24 @@ html,body,div,span,h1,h3,ul,li {
     font-family: Cheltenham, Georgia;
     font-weight:700;
   }
+  /*body{*/
+    /*background: transparent ;*/
+  /*}*/
+  /*body::before{*/
+    /*display:block;*/
+    /*position:absolute;*/
+    /*top:0;*/
+    /*bottom:0;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*background: url(https://upload.wikimedia.org/wikipedia/commons/b/b8/New_York_Times_Frontpage_1914-07-29.png)  no-repeat ;*/
+    /*background-size:cover;*/
+    /*overflow:hidden;*/
+    /*z-index:-1000;*/
+    /*height:100%;*/
+    /*width:100%;*/
+    /*opacity:0.8;*/
+  /*}*/
   * {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     -webkit-tap-highlight-color:transparent;
@@ -457,13 +475,14 @@ html,body,div,span,h1,h3,ul,li {
   h1, h3 { color: #ffffff; font-weight: 500; margin: 0 auto;}
 
   h1 {
+    color: white;
     text-align: center;
     font-size: 76px;
     line-height: 80px;
     padding-top: 2%;
     padding-bottom: 0;
     margin: 0;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 1px;
   }
   h3 {
@@ -479,49 +498,92 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   /* CSS Transitions */
-  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-webkit-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 65% { opacity: 0;} 100% { opacity: 0;} }
+  @-moz-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 65% { opacity: 0;} 100% { opacity: 0;} }
+  @keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; }  65% { opacity: 0;} 100% { opacity: 0;} }
+
+  @-webkit-keyframes title { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes title { from { opacity:0; } to { opacity:1; } }
+  @keyframes title { from { opacity:0; } to { opacity:1; } }
+
 
   .moto {
     position: absolute;
     font-weight: 500;
     font-size: 65px;
     margin-left: 2.5%;
-
     opacity:0;
+
     -webkit-animation:fadeIn ease-in 1;
     -moz-animation:fadeIn ease-in 1;
     animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards alternate;
+    -moz-animation-fill-mode:forwards alternate;
+    animation-fill-mode:forwards alternate;
+
+    -webkit-animation-duration:3.5s;
+    -moz-animation-duration:3.5s;
+    animation-duration:3.5s;
+  }
+
+  .moto.top {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay:2s;
+    animation-delay: 2s;
+    padding-top: 3%;
+  }
+
+  .moto.bottom {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+    padding: 7.5% 0 0 0;
+  }
+
+  .app img {
+    opacity: 0;
+    -webkit-animation:title ease-in 1;
+    -moz-animation:title ease-in 1;
+    animation:title ease-in 1;
 
     -webkit-animation-fill-mode:forwards;
     -moz-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
 
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
+    -webkit-animation-duration:2.5s;
+    -moz-animation-duration:2.5s;
+    animation-duration:2.5s;
+
+    -webkit-animation-delay: 3.5s;
+    -moz-animation-delay:3.5s;
+    animation-delay: 3.5s;
   }
 
-  .moto.top {
-    -webkit-animation-delay: 0.7s;
-    -moz-animation-delay: 0.7s;
-    animation-delay: 0.7s;
-    padding-top: 16%;
-  }
+  .app h1 {
+    opacity: 0;
+    -webkit-animation:title ease-in 1;
+    -moz-animation:title ease-in 1;
+    animation:title ease-in 1;
 
-  .moto.bottom {
-    -webkit-animation-delay: 2.2s;
-    -moz-animation-delay:2.2s;
-    animation-delay: 2.2s;
-    padding: 19.5% 0 0 0;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2.5s;
+    -moz-animation-duration:2.5s;
+    animation-duration:2.5s;
+
+    -webkit-animation-delay: 3.2s;
+    -moz-animation-delay:3.2s;
+    animation-delay: 3.2s;
   }
 
   * {
-  -moz-transition:all 100ms ease;
-  -o-transition:all 100ms ease;
-  -webkit-transition:all 100ms ease;
-  transition:all 100ms ease;
+  -moz-transition:all 200ms ease;
+  -o-transition:all 200ms ease;
+  -webkit-transition:all 200ms ease;
+  transition:all 200ms ease;
   }
 
   /* Highlight Styles */
@@ -633,8 +695,7 @@ html,body,div,span,h1,h3,ul,li {
     cursor: pointer;
     width: 100%;
     height: 60%;
-    border-right: solid 1px #222222;
-    border-left: solid 1px #222222;
+    border-top: solid 1px #222222;
 
   }
   .list-item h3 {
