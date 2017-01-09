@@ -1,11 +1,12 @@
 {
-  "main.css": "static/css/main.1d4b5147.css",
-  "main.css.map": "static/css/main.1d4b5147.css.map",
-  "main.js": "static/js/main.47c1ef35.js",
-  "main.js.map": "static/js/main.47c1ef35.js.map",
+  "main.css": "static/css/main.0a3777df.css",
+  "main.css.map": "static/css/main.0a3777df.css.map",
+  "main.js": "static/js/main.ab5e2acb.js",
+  "main.js.map": "static/js/main.ab5e2acb.js.map",
   "static/media/glyphicons-halflings-regular.eot": "static/media/glyphicons-halflings-regular.f4769f9b.eot",
   "static/media/glyphicons-halflings-regular.svg": "static/media/glyphicons-halflings-regular.89889688.svg",
   "static/media/glyphicons-halflings-regular.ttf": "static/media/glyphicons-halflings-regular.e18bbf61.ttf",
   "static/media/glyphicons-halflings-regular.woff": "static/media/glyphicons-halflings-regular.fa277232.woff",
-  "static/media/glyphicons-halflings-regular.woff2": "static/media/glyphicons-halflings-regular.448c34a5.woff2"
+  "static/media/glyphicons-halflings-regular.woff2": "static/media/glyphicons-halflings-regular.448c34a5.woff2",
+  "static/media/new-york-times-icon.png": "static/media/new-york-times-icon.a490b40e.png"
 }
