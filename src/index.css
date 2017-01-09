@@ -56,7 +56,7 @@ html,body,div,span,h1,h3,ul,li {
   }
   img {
     max-width: 75px;
-    max-heigh: 75px;
+    max-height: 75px;
     margin-bottom: 2.5%;
 
   }
@@ -270,7 +270,7 @@ html,body,div,span,h1,h3,ul,li {
 
   img {
     max-width: 75px;
-    max-heigh: 75px;
+    max-height: 75px;
   }
   /* Typography */
 
@@ -467,7 +467,7 @@ html,body,div,span,h1,h3,ul,li {
 
   img {
     max-width: 150px;
-    max-heigh: 150px;
+    max-height: 150px;
   }
 
 
