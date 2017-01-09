@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>playNYT <img src={require('./new-york-times-icon.png')} alt="logo"/></h1>
+        <h1>playNYT <img src={require('./icon.png')} alt="logo"/></h1>
         <div className="moto bottom">Same Iconic Content</div>
         <div className="moto top">New Experience</div>
         <PlayerPage />
