@@ -30,7 +30,7 @@ class Player extends React.Component {
         this.utterance.voiceURI = this.voices[2];
         this.utterance.lang = 'en-US';
         this.utterance.pitch = 0.65;
-        this.utterance.rate = 1;
+        this.utterance.rate = 0.93;
         this.utterance.volume = 1;
         this.utterance.text = content[i];
 

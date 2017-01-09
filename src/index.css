@@ -2,12 +2,12 @@
 @import url(https://db.onlinewebfonts.com/c/415c1cffdc1ffdf955cdd328ad4a4c87?family=Cheltenham);
 
 @font-face {font-family: "Cheltenham";
-  src: url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.eot");
-  src: url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.eot?#iefix") format("embedded-opentype"),
-  url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.woff2") format("woff2"),
-  url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.woff") format("woff"),
-  url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.ttf") format("truetype"),
-  url("//db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.svg#Cheltenham") format("svg");
+  src: url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.eot");
+  src: url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.eot?#iefix") format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.woff2") format("woff2"),
+  url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.woff") format("woff"),
+  url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.ttf") format("truetype"),
+  url("https://db.onlinewebfonts.com/t/415c1cffdc1ffdf955cdd328ad4a4c87.svg#Cheltenham") format("svg");
 }
 
 
@@ -498,9 +498,9 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   /* CSS Transitions */
-  @-webkit-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
-  @-moz-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
-  @keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; }  82% { opacity: 0;} 100% { opacity: 0;} }
+  @-webkit-keyframes fadeIn { 0% { opacity:0; } 25% { opacity:0.5; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
+  @-moz-keyframes fadeIn { 0% { opacity:0; } 25% { opacity:0.5; } 50% { opacity:1; } 82% { opacity: 0;} 100% { opacity: 0;} }
+  @keyframes fadeIn { 0% { opacity:0; } 25% { opacity:0.5; } 50% { opacity:1; }  82% { opacity: 0;} 100% { opacity: 0;} }
 
   @-webkit-keyframes title { from { opacity:0; } to { opacity:1; } }
   @-moz-keyframes title { from { opacity:0; } to { opacity:1; } }
@@ -524,16 +524,16 @@ html,body,div,span,h1,h3,ul,li {
     -moz-animation-fill-mode:forwards alternate;
     animation-fill-mode:forwards alternate;
 
-    -webkit-animation-duration:3.7s;
-    -moz-animation-duration:3.7s;
-    animation-duration:3.7s;
+    -webkit-animation-duration:3.2s;
+    -moz-animation-duration:3.2s;
+    animation-duration:3.2s;
   }
 
   .moto.top {
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay:1s;
-    animation-delay: 1s;
-    padding: 13.5% 0 0 0;
+    -webkit-animation-delay: .7s;
+    -moz-animation-delay:.7s;
+    animation-delay: .7s;
+    padding: 14.5% 0 0 0;
   }
 
   .moto.bottom {
@@ -544,6 +544,7 @@ html,body,div,span,h1,h3,ul,li {
   }
 
   .app img {
+	background:rgba(0,0,0,.5);
     opacity: 0;
     -webkit-animation:title ease-in 1;
     -moz-animation:title ease-in 1;
