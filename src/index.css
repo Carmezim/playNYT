@@ -430,13 +430,301 @@ html,body,div,span,h1,h3,ul,li {
   }
 }
 
+/* ---------------------- Smaller Desktop ----------------------- */
+
+@media only screen and (min-width: 960px)  and (max-width: 1024px){
+  
+  /* Basic Styles */
+
+  html, body {
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    background-color: black;
+    color:#C8C7C8;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Cheltenham, Georgia;
+    font-weight:700;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    z-index: -100;
+  }
+  * {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+  }
+  footer {
+    font-size: 12px;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+
+  /* Typography */
+
+  h1, h3 { color: #ffffff; font-weight: 500; margin: 0 auto;}
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+    line-height: 74px;
+    padding-top: 2%;
+    padding-bottom: 0;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  h3 {
+    min-height: 3em;
+    line-height: 40px;
+    font-size: 24px;
+    width: 100%;
+  }
+  p {
+    text-align: left;
+    font-size: 12px;
+    margin-left: 2.5%;
+  }
+
+  /* CSS Transitions */
+  @-webkit-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 80% { opacity: 0;} 100% { opacity: 0;} };
+  @-moz-keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 80% { opacity: 0;} 100% { opacity: 0;} };
+  @keyframes fadeIn { 0% { opacity:0; } 50% { opacity:1; } 80% { opacity: 0;} 100% { opacity: 0;} };
+
+  @-webkit-keyframes title { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes title { from { opacity:0; } to { opacity:1; } }
+  @keyframes title { from { opacity:0; } to { opacity:1; } }
+
+
+  .moto {
+    position: absolute;
+	overflow: auto;
+    text-align: left;
+    font-weight: 700;
+    font-size: 60px;
+    margin-left: 1.5%;
+    color: #3E3E3E;
+    opacity:0;
+		
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards alternate;
+    -moz-animation-fill-mode:forwards alternate;
+    animation-fill-mode:forwards alternate;
+
+    -webkit-animation-duration:4.2s;
+    -moz-animation-duration:4.2s;
+    animation-duration:4.2s;
+  }
+  .moto.top {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    padding-top: 15.5%;
+	
+  }
+  
+  .moto.bottom {
+    -webkit-animation-delay: .62s;
+    -moz-animation-delay:.62s;
+    animation-delay: .62s;
+    padding: 35.5% 0 0 0;
+  }
+
+  .app img {
+	background:rgba(0,0,0,.5);
+    opacity: 0;
+    -webkit-animation:title ease-in 1;
+    -moz-animation:title ease-in 1;
+    animation:title ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2.8s;
+    -moz-animation-duration:2.8s;
+    animation-duration:2.8s;
+
+    -webkit-animation-delay: 2.9s;
+    -moz-animation-delay:2.9s;
+    animation-delay: 2.9s;
+  }
+
+  .app h1 {
+    opacity: 0;
+    -webkit-animation:title ease-in 1;
+    -moz-animation:title ease-in 1;
+    animation:title ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2.8s;
+    -moz-animation-duration:2.8s;
+    animation-duration:2.8s;
+
+    -webkit-animation-delay: 3.5s;
+    -moz-animation-delay:3.5s;
+    animation-delay: 3.5s;
+  }
+
+  * {
+  -moz-transition:all 200ms ease;
+  -o-transition:all 200ms ease;
+  -webkit-transition:all 200ms ease;
+  transition:all 200ms ease;
+  }
+
+  /* Highlight Styles */
+  ::selection { background-color:#262223; color:#444; }
+  ::-moz-selection { background-color:#262223; color:#444; }
+
+  .app {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Player */
+
+  .player {
+    background-color: #090909;
+    font-family: Cheltenham ,Georgia;
+    margin: 1.5% auto 1.5%;
+    width: 40%;
+    height: 10%;
+    text-align: center;
+  }
+
+  .player h3 {
+    line-height: 42px;
+    font-size: 38px;
+    padding: 2.5% 0.55% 2.5% 0.55%;
+    text-align: center;
+    overflow: hidden;
+
+  }
+  .player p {
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  /* Button state */
+
+  .player button {
+    margin: 1% auto 1.5%;
+  }
+
+  .play {
+    height:70px;
+    width:70px;
+    background: url("../assets/play-icon-300.png");
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+
+  }
+  .paused {
+    height:70px;
+    width:70px;
+    background: url("../assets/paused-button.png");
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    -moz-border-radius: 5%0;
+    -webkit-border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+
+  .player:active {
+    background-color: #231F20;
+  }
+  .player button:active {
+    background-color: white;
+  }
+  .player button:hover {
+    transform: scale(1.05);
+  }
+
+  /* Article List */
+
+  .article-list {
+    align-text:left;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    columns: 1;
+    -webkit-column-gap: 1.5em;
+    -moz-column-gap: 1.5em;
+    column-gap: 1.5em;
+    -webkit-column-width: 10%;
+    -moz-column-width: 10%;
+    column-width: 10%;
+    -webkit-column-height: 10%;
+    -moz-column-height: 10%;
+    column-height: 10%;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 3%;
+  }
+
+  /* Article List Item */
+
+  .list-item {
+    background-color: #090909;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 100%;
+    height: 60%;
+    border-top: solid 1px #222222;
+
+  }
+  .list-item h3 {
+    text-align: left;
+    font-size: 34px;
+    height:40%;
+    width: 90%;
+    padding: 5% 2.5% 5% 2.5%;
+  }
+  .list-item p {
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .list-item:hover {
+    background-color: #181818;
+    transform: scale(1.05);
+  }
+  div.article-list-item {
+    width: 40%;
+    height: 25%;
+  }
+}
 
 
 
 
 /* -------------------- Desktop ------------------------- */
 
-@media only screen and (min-width: 992px)  and (max-width: 2048px) {
+@media only screen and (min-width: 1025px)  and (max-width: 2300px) {
 
   /* Basic Styles */
 
@@ -510,12 +798,14 @@ html,body,div,span,h1,h3,ul,li {
 
   .moto {
     position: absolute;
+	overflow: auto;
     text-align: left;
     font-weight: 500;
-    font-size: 69px;
-    margin-left: 1%;
+    font-size: 90px;
+    margin-left: 4%;
     color: #3E3E3E;
     opacity:0;
+	font-style: bold;
 
     -webkit-animation:fadeIn ease-in 1;
     -moz-animation:fadeIn ease-in 1;
@@ -533,14 +823,15 @@ html,body,div,span,h1,h3,ul,li {
     -webkit-animation-delay: 2s;
     -moz-animation-delay: 2s;
     animation-delay: 2s;
-    padding-top: 8.5%;
+    padding-top: 5.5%;
+	
   }
   
   .moto.bottom {
     -webkit-animation-delay: .62s;
     -moz-animation-delay:.62s;
     animation-delay: .62s;
-    padding: 14.5% 0 0 0;
+    padding: 20.5% 0 0 0;
   }
 
   .app img {
@@ -558,9 +849,9 @@ html,body,div,span,h1,h3,ul,li {
     -moz-animation-duration:2.8s;
     animation-duration:2.8s;
 
-    -webkit-animation-delay: 3.5s;
-    -moz-animation-delay:3.5s;
-    animation-delay: 3.5s;
+    -webkit-animation-delay: 2.9s;
+    -moz-animation-delay:2.9s;
+    animation-delay: 2.9s;
   }
 
   .app h1 {
