@@ -216,7 +216,7 @@ html,body,div,span,h1,h3,ul,li {
     padding: 5% 2.5% 5% 2.5%;
   }
 
-  .list-item:active {
+  .list-item:hover {
     background-color: #181818;
     transform: scale(1.025);
   }
@@ -530,7 +530,7 @@ html,body,div,span,h1,h3,ul,li {
     -webkit-animation-delay: 2s;
     -moz-animation-delay: 2s;
     animation-delay: 2s;
-    padding-top: 15.5%;
+    padding-top: 12.5%;
 	
   }
   
