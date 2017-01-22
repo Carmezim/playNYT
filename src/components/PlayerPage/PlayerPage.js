@@ -54,7 +54,7 @@ class PlayerPage extends React.Component {
   }
 
   render() {
-
+    // Page refresh handler
     window.onunload = this.unloadPage;
 
     return (
