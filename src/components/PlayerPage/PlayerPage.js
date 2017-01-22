@@ -34,6 +34,10 @@ class PlayerPage extends React.Component {
     }
     return Object.assign({}, state, validation);
   }
+  // Avoids speech to continue on page refresh by clearing utterance queue
+  unloadPage = () => {
+    window.speechSynthesis.cancel();
+  }
 
   componentWillMount() {
     this.setState({
@@ -50,6 +54,9 @@ class PlayerPage extends React.Component {
   }
 
   render() {
+
+    window.onunload = this.unloadPage;
+
     return (
       <div className="player-page">
         <Player

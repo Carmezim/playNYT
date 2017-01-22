@@ -11,26 +11,26 @@ class Player extends React.Component {
   // Fetch API voices
   voices = window.speechSynthesis.getVoices();
 
-  // Handle Speech
+  // Handle all Speech configuration as the speech itself
   setSpeechSynthesis = () => {
     // Making sure to free utterance queue
     window.speechSynthesis.cancel();
 
-    // Provisory solution to match sentences including specified abbreviations
-    let content = this.props.content.join("").match(/((|Oct.|ST. |Dec.|Gov.|Mo.|A.|B.|C.|W.|I.|L.|U.|V.|P.|J.|N.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi);
-
+    // Need to learn regex and improve this
+    // Provisory regular expression solution to match sentences including specified abbreviations
+    const reg = /((|Oct.|ST. |Dec.|Gov.|Mo.|A.|B.|C.|W.|I.|L.|U.|V.|P.|J.|N.|Mr.|Dr.|Ms\.)|[^.?]+?)*[.?]/gi;
+    let content = this.props.content.join("").match(reg);
     // Check SpeechSynthesis is supported on browser
     if ('speechSynthesis' in window) {
-
       // Speak content divided in smaller sizes at a time to bypass API character limit bug
       for (let i = 0; i < content.length; i++) {
-
+        // Utterance configuration
         this.utterance = new window.SpeechSynthesisUtterance();
         this.utterance.voice = this.voices[2];
         this.utterance.voiceURI = this.voices[2];
         this.utterance.lang = 'en-US';
-        this.utterance.pitch = 0.65;
-        this.utterance.rate = 0.93;
+        this.utterance.pitch = 0.75;
+        this.utterance.rate = 1;
         this.utterance.volume = 1;
         this.utterance.text = content[i];
 
@@ -45,21 +45,20 @@ class Player extends React.Component {
 
       }
 
-    } else { console.warn('The current browser does not support the speechSynthesis API.') }
-
+    } else { console.warn('The current browser does not support the speechSynthesis API.'); }
   }
 
   // Methods managing SpeechSynthesis actions
 
-  // Invoking function responsible for setting utterance with article and playing it.
+  // Methods responsible for handling Player actions, setting utterance with article and playing/pausing/resuming it.
   play = () => {
     this.setSpeechSynthesis();
   }
-  // Pause speech
+
   pause = () => {
     window.speechSynthesis.pause();
   }
-  // Resume paused speech
+
   resume = () => {
     window.speechSynthesis.resume();
   }
@@ -77,7 +76,7 @@ class Player extends React.Component {
     stop();
   }
 
-  // Click-handler managing Player component button
+  // Click-handler managing Player component button actions by simulating Play/Pause/Resume functionalities
   handleClick() {
     switch(this.props.playing) {
       case 'LIST_PLAY':
@@ -125,7 +124,7 @@ class Player extends React.Component {
         break;
     }
   }
-
+  // Handles playlist action by invoking handleclick() which already takes care of all Player action cases
   listPlay = () => {
     if(this.props.playing === 'LIST_PLAY'){
       console.log('list play');
@@ -134,10 +133,11 @@ class Player extends React.Component {
   }
 
   render(){
-    // Avoids voices changing mid speech due async nature of getVoices() method
+    // Voices won't change mid speech due async nature of getVoices() method by only starting speech when API voices finish loading
     window.speechSynthesis.onvoiceschanged = () => {
       this.voices = window.speechSynthesis.getVoices();
     };
+
     return(
       <div className="player">
         <h3 className="player-headline">{this.props.headline}</h3>
@@ -149,6 +149,7 @@ class Player extends React.Component {
   }
 };
 
+// Type checking
 Player.propTypes = {
   author: React.PropTypes.string.isRequired,
   playing: React.PropTypes.string.isRequired,
