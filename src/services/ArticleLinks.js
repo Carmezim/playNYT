@@ -39,7 +39,7 @@ let articlesLinks = function(callback) {
           // Fetching articles content
           var $ = cheerio.load(body);
           var title = $('h1.headline').text();
-          var writter = $('span.byline').text();
+          var writer = $('span.byline').text();
           var content = $('article.story.theme-main');
           console.log('getting article content');
           content.find('div > div > p.story-body-text').each(function (index, element) {
@@ -68,7 +68,6 @@ let articlesLinks = function(callback) {
       content: _.pluck(item, 'content')
       }
     });
-    console.log('Data sample', data[0]);
     // Write content in JSON format locally
     var dataJSON = JSON.stringify(data, null, 4);
     console.log(dataJSON);
