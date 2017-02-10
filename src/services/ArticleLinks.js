@@ -47,10 +47,10 @@ let articlesLinks = function(callback) {
               url: url,
               content: ' ' + $(element).text(),
               headline: title,
-              author: writter
+              author: writer
             });
           });
-          resolve({articleContent: articleContent, content: content, url: url, title: title, writter: writter});
+          resolve({articleContent: articleContent, content: content, url: url, title: title, writer: writer});
         });
       });
     }))
