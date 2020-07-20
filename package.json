@@ -1,7 +1,7 @@
 {
   "name": "playNYTimes",
-  "author": "Adriano-Carmezim"
-  "version": "0.3.0",
+  "author": "Adriano-Carmezim",
+  "version": "0.3.1",
   "homepage": "https://carmezim.github.io/playNYT",
   "devDependencies": {
     "autoprefixer": "6.5.1",
